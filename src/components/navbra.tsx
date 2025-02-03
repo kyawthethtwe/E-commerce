@@ -44,8 +44,8 @@ export default function Navbar() {
           }}
           className="flex flex-1 items-center space-x-2"
         >
-          <Input type="search" placeholder="Search..." name="search" className="md:w-[300px] lg:w-[400px]" />
-          <Button type="submit" size="icon" variant="ghost">
+          <Input type="search" placeholder="Search..." name="search" className="md:w-[300px] lg:w-[400px] bg-white" />
+          <Button type="submit" size="icon" variant="ghost" className="bg-white">
             <Search className="h-4 w-4" />
             <span className="sr-only">Search</span>
           </Button>
