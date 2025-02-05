@@ -8,8 +8,12 @@ const faq = [
         answer: "This website is a platform for people to find and share information about the best places to visit in Bangkok."
     }, 
     {
-        question: "What is the purpose of this website?",
-        answer: "This website is a platform for people to find and share information about the best places to visit in Bangkok."
+        question: "How to create an account?",
+        answer: "You can create an account by clicking the sign up button on the website."
+    },
+    {
+        question: "How to login to my account?",
+        answer: "You can login to your account by clicking the login button on the website."
     },
     {
         question: "How to cancel my order?",

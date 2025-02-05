@@ -27,8 +27,8 @@ export default function HowItWorks() {
         {steps.map((step, index) => (
           <Card key={index}>
             <CardHeader>
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center mb-4">
-                <step.icon className="h-6 w-6 text-primary-foreground" />
+              <div className="w-12 h-12 rounded-full bg-highlight flex items-center justify-center mb-4">
+                <step.icon className="h-6 w-6 text-muted-foreground" />
               </div>
               <CardTitle>{step.title}</CardTitle>
             </CardHeader>

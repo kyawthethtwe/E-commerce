@@ -19,7 +19,7 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-card shadow-sm">
+    <nav className="sticky top-0 z-50 w-full border-b bg-background shadow-sm">
       <div className="container flex h-14 items-center">
         <Link href="/" className="mr-4 flex items-center space-x-2">
           <span className="text-xl font-bold text-highlight">EcoMarket</span>

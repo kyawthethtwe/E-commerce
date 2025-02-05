@@ -16,7 +16,7 @@ export default function ContactBanner() {
             <h1 className="absolute inset-0 flex items-center justify-center text-4xl md:text-5xl font-bold text-white">
                 Contact
             </h1>
-            </div>
+        </div>
         
     )
 }

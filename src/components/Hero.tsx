@@ -47,7 +47,7 @@ export default function Hero() {
       </p>
       <div className="mt-5 sm:mt-8 sm:flex sm:justify-center w-full max-w-md">
         <div className="mt-3 sm:mt-0 sm:ml-3 w-full">
-          <Input type="text" placeholder={searchPhrase} className="w-full" />
+          <Input type="text" placeholder={searchPhrase} className="w-full bg-white" />
         </div>
         <div className="mt-3 sm:mt-0 sm:ml-3">
           <Button type="submit" className="cursor-pointer">Search Deals</Button>
@@ -55,7 +55,7 @@ export default function Hero() {
       </div>
       <div className="mt-8">
         <Link href="/categories">
-          <Button variant="outline" size="lg" className="cursor-pointer"> 
+          <Button size="lg" className="cursor-pointer"> 
             Explore Categories
           </Button>
         </Link>
