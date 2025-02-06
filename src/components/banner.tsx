@@ -7,13 +7,13 @@ interface BannerProps {
 
 export default function Banner({ title, image }: BannerProps) {
   return (
-    <div className="relative w-full h-[200px] lg:h-[300px] rounded-lg">
+    <div className="relative w-full h-[200px] lg:h-[300px]">
       <Image
         src={image}
         alt={title || "Banner"}
         fill
         priority
-        className="object-cover object-center brightness-75 rounded-lg"
+        className="object-cover object-center brightness-75 w-full h-full"
       />
       {title && (
         <>

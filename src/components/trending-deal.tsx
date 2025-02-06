@@ -46,7 +46,7 @@ export default function TrendingDeals() {
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg font-semibold line-clamp-1">{deal.title}</h3>
-                    <p className="text-xl font-bold text-primary">${deal.price})</p>
+                    <p className="text-xl font-bold text-primary">{deal.price}</p>
                     <Button asChild className="mt-4 w-full ">
                       <Link href={`/deal/${deal.id}`}>View Deal</Link>
                     </Button>

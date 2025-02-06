@@ -17,10 +17,10 @@ const contact = [{
 
 export default function ContactLocation() {
     return (
-        <div className="flex flex-col justify-center ml-16 gap-4 p-4">
+        <div className="flex flex-col  ml-16 gap-4 p-4 bg-background rounded-lg">
             {contact.map((item, index) => (
                 <div key={index} className="flex items-center gap-4">
-                    <div className="bg-highlight p-2 flex items-center rounded-full">{item.icon}</div>
+                    <div className="">{item.icon}</div>
                     <p>{item.description}</p>
                 </div>
             ))}

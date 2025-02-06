@@ -2,7 +2,7 @@ import Banner from "@/components/banner";
 export default function About() {
   return (
     <div className="">
-      <Banner image="/banner.jpg" />
+      <Banner image="/main-banner.jpg" />
       <div className="max-w-3xl mx-auto px-4 py-8 space-y-4">
         <h2 className="text-3xl font-bold text-highlight">About Us</h2>
         <p className="text-lg text-foreground">

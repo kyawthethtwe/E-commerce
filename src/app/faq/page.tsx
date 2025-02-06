@@ -38,13 +38,13 @@ export default function FAQPage() {
     return (
         <div>
             {/* banner*/}
-            <div className="bg-gray-100 h-[200px] sm:h-[300px] ">
+            <div className=" h-[200px] sm:h-[300px] w-full">
                 <Image
-                src="/home-banner.jpg"
+                src="/main-banner.jpg"
                 alt="banner"
                 width={1024}
                 height={1000}
-                className="w-full h-full object-cover object-center rounded-md"
+                className="w-full h-full object-cover brightness-75 object-center "
                 />
             </div>
             <div className="container px-4 mx-auto mb-8 mt-10">
