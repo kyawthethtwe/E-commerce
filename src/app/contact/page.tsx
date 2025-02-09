@@ -1,9 +1,9 @@
-import ContactBanner from "@/components/contact/contact-banner";
-import ContactForm from "@/components/contact/contact-form";
+import Banner from "@/components/contact/banner";
+import ContactForm from "@/components/contact/contactForm";
 export default function ContactPage() {
     return (
         <div>
-            <ContactBanner />
+            <Banner />
             <div className="container mx-auto px-4 py-8 ">
                 <ContactForm />
             </div>
