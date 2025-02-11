@@ -3,7 +3,7 @@ import FooterBanner from "./footer-banner";
 import Info from "./Info";
 import DepartmentInfo from "./departmentInfo";
 import SocialMedia from "./social-media";
-import MainPadding from "@/components/ui/MainPadding";
+import MainPadding from "../ui/MainPadding";
 import Logo from "./Logo";
 export default function Footer() {
   return (
