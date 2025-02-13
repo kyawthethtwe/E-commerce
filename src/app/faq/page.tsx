@@ -47,7 +47,7 @@ export default function FAQPage() {
                 className="w-full h-full object-cover brightness-75 object-center "
                 />
             </div>
-            <div className="container px-4 mx-auto mb-8 mt-10">
+            <div className="container px-4 mx-auto mb-8 my-16">
                 <div className="flex justify-center items-center mb-4 gap-2">
                     <Input type="text" placeholder="Search" className="w-60 h-10" /> 
                     <Button className="w-20 h-10">Search</Button>

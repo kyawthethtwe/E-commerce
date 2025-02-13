@@ -17,7 +17,7 @@ export default function Navbar() {
   const logout = () => {
     setUser(false)
   }
-
+  
   return (
     <nav className=" z-50 w-full border-b bg-background shadow-sm">
       <div className="container flex h-14 items-center">

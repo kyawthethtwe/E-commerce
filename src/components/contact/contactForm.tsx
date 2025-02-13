@@ -9,10 +9,10 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 
 const formSchema = z.object({
-  name: z.string().min(2, "ต้องมีความยาวอย่างน้อย 2 ตัวอักษร"),
-  phone: z.string().min(10, "เบอร์โทรศัพท์ไม่ถูกต้อง"),
-  email: z.string().email("อีเมลไม่ถูกต้อง"),
-  details: z.string().min(10, "รายละเอียดต้องมีความยาวอย่างน้อย 10 ตัวอักษร"),
+  name: z.string().min(2, "name is required"),
+  phone: z.string().min(10, "phone is required"),
+  email: z.string().email("email is required"),
+  details: z.string().min(10, "details is required"),
 });
 
 const ContactForm = () => {
@@ -39,14 +39,14 @@ const ContactForm = () => {
         {/* Form Card */}
         <div className="w-full">
           <div className="p-6">
-            <h1 className="text-2xl font-bold text-highlight">ติดต่อเรา</h1>
+            <h1 className="text-2xl font-bold text-highlight">Contact Us</h1>
             <form
               className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"
               onSubmit={handleSubmit(onSubmit)}
             >
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  ชื่อ - สกุล
+                  Name
                 </label>
                 <Input placeholder="กรอกชื่อของคุณ" {...register("name")} />
                 {errors.name && (
@@ -55,7 +55,7 @@ const ContactForm = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  เบอร์โทรศัพท์
+                  Phone
                 </label>
                 <Input
                   placeholder="กรอกเบอร์โทรศัพท์ของคุณ"
@@ -67,7 +67,7 @@ const ContactForm = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  อีเมล
+                 Email
                 </label>
                 <Input 
                 placeholder="กรอกอีเมลของคุณ" 
@@ -77,7 +77,7 @@ const ContactForm = () => {
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium text-gray-700">
-                  รายละเอียด
+                  Details
                 </label>
                 <Input 
                 placeholder="กรอกรายละเอียด"
@@ -88,7 +88,7 @@ const ContactForm = () => {
               <div className="flex justify-center items-center md:col-span-2 mt-4">
                 <Button type="submit"  className="rounded-md px-14 py-1 ">
                   <Send className="h-6 w-6 shrink-0" />
-                  ส่ง
+                  send
                 </Button>
               </div>
             </form>
@@ -120,30 +120,30 @@ const ContactForm = () => {
               </div>
               <div className="bg-white h-14 w-1" />
               <div>
-                <h2 className="font-bold">คณะบริหารธุรกิจ</h2>
-                <p className="text-sm">Faculty of Business Administration</p>
+                <h2 className="font-bold">EcoMarket</h2>
+                <p className="text-sm">Join With Us To Save The World</p>
               </div>
             </div>
             <div className="space-y-6">
               <div className="flex gap-3">
                 <Home className="h-5 w-5 shrink-0" />
                 <div className="space-y-1">
-                  <p className="font-semibold">คณะบริหารธุรกิจ</p>
-                  <p className="text-sm">มหาวิทยาลัยเทคโนโลยีราชมงคลอีสาน</p>
-                  <p className="text-sm">744 ถ.สุรนารายณ์ ต.ในเมือง</p>
-                  <p className="text-sm">อ.เมือง จ.นครราชสีมา 30000</p>
+                  <p className="font-semibold">Bangkok</p>
+                  <p className="text-sm">Muean Ake Pathumthani</p>
+                  <p className="text-sm">744 Lakhok</p>
+                  <p className="text-sm">Pathum Thani 30000</p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <Phone className="h-5 w-5 shrink-0" />
                 <div>
-                  <p>044233000 ต่อ 3075</p>
+                  <p>044233000 </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <Mail className="h-5 w-5 shrink-0" />
                 <div>
-                  <p>ba.rmuti@outlook.com</p>
+                  <p>ecomarket@gmail.com</p>
                 </div>
               </div>
             </div>
