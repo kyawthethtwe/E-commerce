@@ -23,11 +23,11 @@ const swiperStyles = {
   }
 const FeaturedProducts: React.FC = () => {
   const featuredProducts = [
-    { id: 1, name: "Vintage Leather Jacket", price: 89.99, image: "/retro.jpg" },
-    { id: 2, name: "Retro Camera", price: 129.99, image: "/retro.jpg" },
-    { id: 3, name: "Antique Wooden Chair", price: 59.99, image: "/retro.jpg" },
-    { id: 4, name: "Classic Vinyl Record", price: 24.99, image: "/retro.jpg" },
-    { id: 5, name: "Vintage Typewriter", price: 79.99, image: "/retro.jpg" },
+    { id: 1, title: "Vintage Leather Jacket", price: 89.99, image: "/retro.jpg" },
+    { id: 2, title: "Retro Camera", price: 129.99, image: "/retro.jpg" },
+    { id: 3, title: "Antique Wooden Chair", price: 59.99, image: "/retro.jpg" },
+    { id: 4, title: "Classic Vinyl Record", price: 24.99, image: "/retro.jpg" },
+    { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/retro.jpg" },
   ]
 
   return (

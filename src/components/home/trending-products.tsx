@@ -6,14 +6,14 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useState } from "react"
 
 const trendingItems = [
-    { id: 1, name: "Vintage Denim Jacket", price: 69.99, image: "/retro.jpg", category: "Fashion" },
-    { id: 2, name: "Retro Polaroid Camera", price: 89.99, image: "/retro.jpg", category: "Electronics" },
-    { id: 3, name: "Mid-Century Modern Chair", price: 129.99, image: "/retro.jpg", category: "Furniture" },
-    { id: 4, name: "Classic Vinyl Collection", price: 199.99, image: "/retro.jpg", category: "Collectibles" },
-    { id: 5, name: "Vintage Typewriter", price: 79.99, image: "/retro.jpg", category: "Collectibles" },
-    { id: 6, name: "Handmade Leather Bag", price: 159.99, image: "/retro.jpg", category: "Fashion" },
-    { id: 7, name: "Wooden Bookshelf", price: 89.99, image: "/retro.jpg", category: "Furniture" },
-    { id: 8, name: "Antique Brass Camera", price: 69.99, image: "/retro.jpg", category: "Electronics" },
+    { id: 1, title: "Vintage Denim Jacket", price: 69.99, image: "/retro.jpg", category: "Fashion" },
+    { id: 2, title: "Retro Polaroid Camera", price: 89.99, image: "/retro.jpg", category: "Electronics" },
+    { id: 3, title: "Mid-Century Modern Chair", price: 129.99, image: "/retro.jpg", category: "Furniture" },
+    { id: 4, title: "Classic Vinyl Collection", price: 199.99, image: "/retro.jpg", category: "Collectibles" },
+    { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/retro.jpg", category: "Collectibles" },
+    { id: 6, title: "Handmade Leather Bag", price: 159.99, image: "/retro.jpg", category: "Fashion" },
+    { id: 7, title: "Wooden Bookshelf", price: 89.99, image: "/retro.jpg", category: "Furniture" },
+    { id: 8, title: "Antique Brass Camera", price: 69.99, image: "/retro.jpg", category: "Electronics" },
 ]
 
 const categories = ["All", "Fashion", "Electronics", "Furniture", "Collectibles", "Books", "Sports"]
