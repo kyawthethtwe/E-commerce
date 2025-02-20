@@ -9,7 +9,7 @@ const { data , isLoading } = useGetProducts()
 console.log(data)
   return (
     <div className="flex-1">
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-end mb-4 ">
         <Select defaultValue="featured">
           <SelectTrigger className="w-[180px]">
             <SelectValue placeholder="Sort by" />
@@ -22,7 +22,7 @@ console.log(data)
           </SelectContent>
         </Select>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
         {isLoading && <p>Loading...</p>}
         {data?.map((product) => (
             <ProductCard key={product.id} product={product} />

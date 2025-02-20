@@ -9,6 +9,25 @@ const Header = () => {
         <Link href="/" className="text-2xl font-bold text-primary">
           SecondHand
         </Link>
+        <nav>
+          <ul className="flex space-x-4">
+            <li>
+              <Link href="/" className="text-gray-600 hover:text-primary">
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link href="/products" className="text-gray-600 hover:text-primary">
+                Products
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="text-gray-600 hover:text-primary">
+                About
+              </Link>
+            </li>
+          </ul>
+        </nav>
         <div className="flex items-center space-x-4">
           <div className="relative">
             <input

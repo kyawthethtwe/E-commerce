@@ -3,6 +3,7 @@ import "./globals.css";
 import { Kanit } from "next/font/google";
 import Providers from "@/services/providers";
 import Footer from "@/components/home/footer";
+import Header from "@/components/home/header";
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
@@ -25,6 +26,7 @@ export default function RootLayout({
         className={`${kanit.className} antialiased`}
       >
         <Providers>
+        <Header />
         {children}
         <Footer />
         </Providers>
