@@ -61,7 +61,7 @@ const shakeAnimation = {
 
 const CategoriesGrid: React.FC = () => {
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="py-12">
       <h2 className="text-3xl font-bold mb-8">Shop by Category</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {categories.map((category) => (

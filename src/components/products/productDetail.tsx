@@ -20,9 +20,11 @@ const ProductDetail = ({productId} : {productId : string}) => {
     data: product,
     isLoading,
   } = useSingleProduct(Id)
+  if (isLoading) {
+    return <div className="flex justify-center items-center h-screen">Loading...</div>
+  }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-      {isLoading && <p>Loading...</p>}
       <div className=""> 
         {showAR ? (
           <Suspense fallback={<div>Loading AR viewer...</div>}>

@@ -15,9 +15,9 @@ export const useSingleProduct = (id: number) => {
   })
 }
 
-export const useGetRelaledProducts = (id: string) => {
+export const useGetRelaledProducts = () => {
   return useQuery({
-    queryKey: ["relatedProducts", id],
-    queryFn: () => getRelatedProducts(id),
+    queryKey: ["relatedProducts"],
+    queryFn: () => getRelatedProducts(),
   })
 }

@@ -8,55 +8,18 @@ import ProductCard from "./product-card"
 import { useGetRelaledProducts } from "@/services/queries/productQueries"
 
 //mock realted products 
-const relatedProducts = [
-    {
-        id: 1,
-        title: "Product 1",
-        price: 100,
-        image: "/retro.jpg",
-    },
-    {
-        id: 2,
-        title: "Product 2",
-        price: 200,
-        image: "/retro.jpg",
-    },
-    {
-        id: 3,
-        title: "Product 3",
-        price: 300,
-        image: "/retro.jpg",
-    },
-    {
-        id: 4,
-        title: "Product 4",
-        price: 400,
-        image: "/retro.jpg",
-    },
-    {
-        id: 5,
-        title: "Product 5",
-        price: 500,
-        image: "/retro.jpg",
-    },
-    {
-        id: 6,
-        title: "Product 6",
-        price: 600,
-        image: "/retro.jpg",
-    },
-    ]
+
 
 const RelatedProducts = ({ productId }: { productId: string }) => {
 
-//   const {
-//     data: relatedProducts,
-//     isLoading,
-//     error,
-//   } = useGetRelaledProducts(productId)
+  const {
+    data: relatedProducts,
+    isLoading,
+    error,
+  } = useGetRelaledProducts()
 
-//   if (isLoading) return <div>Loading related products...</div>
-//   if (error) return <div>Error loading related products: {(error as Error).message}</div>
+  if (isLoading) return <div>Loading related products...</div>
+  if (error) return <div>Error loading related products: {(error as Error).message}</div>
 
   return (
     <div className="mt-12">
@@ -85,7 +48,7 @@ const RelatedProducts = ({ productId }: { productId: string }) => {
         ))}
       </Swiper> */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 ">
-        {relatedProducts.map((product) => (
+        {relatedProducts?.map((product) => (
             <ProductCard key={product.id} product={product} />
         ))}
       </div>
