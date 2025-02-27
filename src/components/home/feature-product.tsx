@@ -16,42 +16,6 @@ const featuredProducts = [
   { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/retro.jpg", description: "This is a vintage typewriter", category: "Typewriter", rating: { rate: 4.5, count: 20 } },
 ]
 
-// const FeaturedProducts: React.FC = () => {
-//   return (
-//     <section className="py-12">
-//       <h2 className="text-3xl font-bold mb-8">Featured Products</h2>
-//       <Swiper
-//         modules={[Navigation, Pagination]}
-//         spaceBetween={20}
-//         slidesPerView={1}
-//         navigation 
-//         pagination={{ clickable: true }}
-//         breakpoints={{
-//           640: {
-//             slidesPerView: 2,
-//           },
-//           768: {
-//             slidesPerView: 3,
-//           },
-//           1024: {
-//             slidesPerView: 4,
-//           },
-//         }}
-//         className=""
-//       >
-//           {featuredProducts.map((product) => (
-//             <SwiperSlide key={product.id}>
-//               <ProductCard product={product} />
-//             </SwiperSlide>
-//           ))}
-//       </Swiper>
-//     </section>
-//   )
-// }
-
-// export default FeaturedProducts
-
-
 const FeaturedProducts: React.FC = () => {
   return (
     <section className="py-12 relative">
