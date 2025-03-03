@@ -192,7 +192,7 @@ const RenderPagination: React.FC<PaginationProps> = ({
               onClick={prevPage}
               disabled={currentPage === 1}
             >
-              <span className="md:block hidden">ก่อนหน้า</span>
+              <span className="md:block hidden">previous</span>
               <ChevronLeft className="h-4 w-4 max-md:block hidden" />
             </Button>
           </PaginationItem>
@@ -224,7 +224,7 @@ const RenderPagination: React.FC<PaginationProps> = ({
               onClick={nextPage}
               disabled={currentPage === totalPages}
             >
-              <span className="md:block hidden">ถัดไป</span>
+              <span className="md:block hidden">next</span>
               <ChevronRight className="h-4 w-4  max-md:block hidden" />
             </Button>
           </PaginationItem>

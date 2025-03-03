@@ -1,10 +1,10 @@
-import type React from "react"
-import Image from "next/image"
 import { motion } from "framer-motion"
+import Image from "next/image"
 import Link from "next/link"
+import type React from "react"
 import { Badge } from "../ui/badge"
 
-interface Product {
+export interface Product {
   id: number
   title: string,
   description: string
@@ -58,23 +58,4 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
 export default ProductCard
 
-{/* <Link href={`/facultynews/news/${id}`}>
-  <div className="flex flex-col items-center ">
-      <div className="relative w-full 2xl:h-[477px] h-[360px]  overflow-hidden  ">
-          <Image
-              src={imageUrl}
-              alt="Activity"
-              fill
-              priority
-              className="w-full h-full object-cover object-center"
-          />
-      </div>
-      <div className=" w-full text-black mt-2">
-          <p className=" text-sm  xl:text-base 2xl:text-xl">{date}</p>
-          <h1 className="text-base  md:text-lg xl:text-lg 2xl:text-2xl h-[5.7rem] overflow-hidden font-semibold mt-3">
-              <span className="line-clamp-3">{title}</span>
-          </h1>
-          <p className="text-sm  xl:text-base 2xl:text-xl line-clamp-2">{description}</p>
-      </div>
-  </div>
-  </Link> */}
+

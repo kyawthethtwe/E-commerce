@@ -1,6 +1,5 @@
-import React from "react"
-import Link from "next/link"
 import { Search, ShoppingCart, User } from "lucide-react"
+import Link from "next/link"
 
 const Header = () => {
   return (
@@ -40,7 +39,7 @@ const Header = () => {
           <Link href="/cart" className="text-gray-600 hover:text-primary">
             <ShoppingCart size={24} />
           </Link>
-          <Link href="/account" className="text-gray-600 hover:text-primary">
+          <Link href="/dashboard/listings" className="text-gray-600 hover:text-primary">
             <User size={24} />
           </Link>
         </div>
