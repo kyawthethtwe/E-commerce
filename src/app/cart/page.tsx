@@ -5,11 +5,19 @@ import { Minus, Plus, Trash2 } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
+import { toast } from "sonner"
 
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotal } = useCartStore()
   const router = useRouter()
-
+  const handleQuantityChange = (id: string , quantity: number ) => {
+    if(quantity === 0){
+      removeItem(id)
+      toast.info("Product removed from cart")
+    }else{
+      updateQuantity(id, quantity)
+    }
+  }
   if (items.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
@@ -47,18 +55,25 @@ export default function CartPage() {
                 </div>
                 <div className="flex items-center gap-2">
                   <Button
-                    variant="outline"
                     size="icon"
-                    onClick={() => updateQuantity(item.id, Math.max(0, item.quantity - 1))}
+                    onClick={() => handleQuantityChange(item.id, Math.max(0, item.quantity - 1))}
                   >
                     <Minus className="h-4 w-4" />
                   </Button>
                   <span className="w-8 text-center">{item.quantity}</span>
-                  <Button variant="outline" size="icon" onClick={() => updateQuantity(item.id, item.quantity + 1)}>
+                  <Button  
+                  size="icon" 
+                  onClick={() => handleQuantityChange(item.id, item.quantity + 1)}>
                     <Plus className="h-4 w-4" />
                   </Button>
                 </div>
-                <Button variant="ghost" size="icon" onClick={() => removeItem(item.id)}>
+                <Button  
+                  size="icon" 
+                  onClick={() => {
+                    removeItem(item.id)
+                    toast.info("Product removed from cart")
+                  }}
+                >
                   <Trash2 className="h-4 w-4" />
                 </Button>
               </motion.div>
@@ -83,7 +98,11 @@ export default function CartPage() {
               </div>
             </div>
           </div>
-          <Button className="w-full" onClick={() => router.push("/checkout")}>
+          <Button 
+            className="w-full" 
+            disabled={items.length === 0}
+            onClick={() => router.push("/checkout")}
+          >
             Proceed to Checkout
           </Button>
         </div>

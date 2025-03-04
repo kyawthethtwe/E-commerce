@@ -11,11 +11,18 @@ import ModelViewer from "../Model"
 import { Heart, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useSingleProduct } from "@/services/queries/productQueries"
 import { cn } from "@/lib/utils"
+import { useCartStore } from "@/services/stores/cart"
+import { toast } from "sonner"
 const images = ["/retro.jpg", "/retro.jpg", "/retro.jpg", "/retro.jpg"]
 const ProductDetail = ({productId} : {productId : string}) => {
   const [showAR, setShowAR] = React.useState(false)
   const [quantity, setQuantity] = React.useState(1)
   const Id = parseInt(productId)
+  
+  const addItem = useCartStore((state) => state.addItem)
+
+
+
   const {
     data: product,
     isLoading,
@@ -155,7 +162,14 @@ const ProductDetail = ({productId} : {productId : string}) => {
               if (!product) {
                 return;
               }
-              // addToCartFunction(product.id, value);
+              addItem({
+                id: product.id.toString(),
+                name: product.title,
+                price: product.price,
+                image: product.image,
+                quantity
+              })
+              toast.success("Product added to cart  🛒")
               setQuantity(0);
             }}
             // product?.quantity === 0

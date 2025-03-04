@@ -4,6 +4,7 @@ import { Kanit } from "next/font/google";
 import Providers from "@/services/providers";
 import Footer from "@/components/home/footer";
 import Header from "@/components/home/header";
+import { Toaster } from "sonner";
 const kanit = Kanit({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Providers>
         <Header />
         {children}
+        <Toaster position="top-right" richColors />
         <Footer />
         </Providers>
       </body>
