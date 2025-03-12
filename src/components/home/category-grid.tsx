@@ -65,7 +65,8 @@ const CategoriesGrid: React.FC = () => {
       <h2 className="text-3xl font-bold mb-8">Shop by Category</h2>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {categories.map((category) => (
-          <Link href={`/category/${category.id}`} key={category.id}>
+          // <Link href={`/category/${category.id}`} key={category.id}>
+          <Link href={`/products`} key={category.id}>
             <motion.div
               whileHover={{ scale: 1.05 }}
               className={`${category.color} rounded-xl p-6 transition-all duration-300 cursor-pointer`}

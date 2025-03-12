@@ -9,7 +9,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
   return (
     <MainPadding className=" py-8">
       <ProductDetail productId={productId} />
-      <RelatedProducts productId={productId} />
+      <RelatedProducts />
     </MainPadding>
   )
 }

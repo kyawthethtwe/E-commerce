@@ -12,6 +12,7 @@ import { Heart, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useSingleProduct } from "@/services/queries/productQueries"
 import { cn } from "@/lib/utils"
 import { useCartStore } from "@/services/stores/cart"
+import { useWishlistStore } from "@/services/stores/wishlist"
 import { toast } from "sonner"
 const images = ["/retro.jpg", "/retro.jpg", "/retro.jpg", "/retro.jpg"]
 const ProductDetail = ({productId} : {productId : string}) => {
@@ -20,9 +21,9 @@ const ProductDetail = ({productId} : {productId : string}) => {
   const Id = parseInt(productId)
   
   const addItem = useCartStore((state) => state.addItem)
-
-
-
+  const addToWishlist = useWishlistStore((state) => state.addWishlist)
+  const removeFromWishlist = useWishlistStore((state) => state.removeWishlist)
+  const isWishlisted = useWishlistStore((state) => state.isWishlisted)
   const {
     data: product,
     isLoading,
@@ -32,6 +33,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
   }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+      {/* AR */}
       <div className=""> 
         {showAR ? (
           <Suspense fallback={<div>Loading AR viewer...</div>}>
@@ -47,7 +49,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
             /> */}
             <ModelViewer
               src={product?.image}
-              alt={`3D model of ${product?.title}`}
+              alt={`3D model of ${product?.name}`}
               ar
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
@@ -84,7 +86,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
         </Button>
       </div>
       <div>
-        <h1 className="text-3xl font-bold mb-4">{product?.title}</h1>
+        <h1 className="text-3xl font-bold mb-4">{product?.name}</h1>
         <p className="text-2xl font-semibold text-primary mb-4">${product?.price.toFixed(2)}</p>
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2">Description</h2>
@@ -164,7 +166,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
               }
               addItem({
                 id: product.id.toString(),
-                name: product.title,
+                name: product.name,
                 price: product.price,
                 image: product.image,
                 quantity
@@ -182,6 +184,16 @@ const ProductDetail = ({productId} : {productId : string}) => {
             className=" border border-primary text-primary  w-full rounded-lg h-12 max-lg:h-10 flex justify-center gap-4  max-lg:gap-2 max-lg:text-sm max-375:text-xs max-375:gap-1 items-center"
             onClick={() => {
               // handleAddFavorite();
+              if (!product) {
+                return;
+              }
+              if (isWishlisted(product.id)) {
+                removeFromWishlist(product.id);
+                toast.info("Product removed from wishlist");
+              } else {
+                addToWishlist(product);
+                toast.success("Product added to wishlist");
+              }
             }}
           >
             <Heart
@@ -193,6 +205,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
                 //     product?.id ?? ""
                 //   ),
                 // }
+                { "fill-primary": product && isWishlisted(product.id) }
               )}
             />
             {/* {FavoriteItemList?.includes(product?.id ?? "")
