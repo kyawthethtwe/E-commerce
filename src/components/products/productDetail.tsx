@@ -19,7 +19,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
   const [showAR, setShowAR] = React.useState(false)
   const [quantity, setQuantity] = React.useState(1)
   const Id = parseInt(productId)
-  
+  // const wishlist = useWishlistStore((state) => state.wishlist)
   const addItem = useCartStore((state) => state.addItem)
   const addToWishlist = useWishlistStore((state) => state.addWishlist)
   const removeFromWishlist = useWishlistStore((state) => state.removeWishlist)
@@ -49,7 +49,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
             /> */}
             <ModelViewer
               src={product?.image}
-              alt={`3D model of ${product?.name}`}
+              alt={`3D model of ${product?.title}`}
               ar
               ar-modes="webxr scene-viewer quick-look"
               camera-controls
@@ -71,7 +71,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
               <SwiperSlide key={index}>
                 <Image
                   src={image}
-                  alt={`Product image ${index + 1}`}
+                  alt={product?.title ?? "Product Image"}
                   fill
                   priority
                   sizes="100%"
@@ -86,7 +86,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
         </Button>
       </div>
       <div>
-        <h1 className="text-3xl font-bold mb-4">{product?.name}</h1>
+        <h1 className="text-3xl font-bold mb-4">{product?.title}</h1>
         <p className="text-2xl font-semibold text-primary mb-4">${product?.price.toFixed(2)}</p>
         <div className="mb-6">
           <h2 className="text-xl font-semibold mb-2">Description</h2>
@@ -166,7 +166,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
               }
               addItem({
                 id: product.id.toString(),
-                name: product.name,
+                title: product.title,
                 price: product.price,
                 image: product.image,
                 quantity
@@ -200,12 +200,10 @@ const ProductDetail = ({productId} : {productId : string}) => {
               className={cn(
                 " w-6 h-6 max-lg:w-5 max-lg:h-5  text-primary",
                 "",
-                // {
-                //   "fill-primary  ": FavoriteItemList?.includes(
-                //     product?.id ?? ""
-                //   ),
-                // }
-                { "fill-primary": product && isWishlisted(product.id) }
+                {
+                  "fill-primary  ": product && isWishlisted(product.id)
+                }
+               
               )}
             />
             {/* {FavoriteItemList?.includes(product?.id ?? "")

@@ -6,14 +6,14 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useState } from "react"
 
 const trendingItems = [
-    { id: 1, title: "Vintage Denim Jacket", price: 69.99, image: "/product/p1.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a vintage denim jacket" },
-    { id: 2, title: "Retro Polaroid Camera", price: 89.99, image: "/product/p2.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is a retro polaroid camera" },
-    { id: 3, title: "Mid-Century Modern Chair", price: 129.99, image: "/product/p3.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a mid-century modern chair" },
-    { id: 4, title: "Classic Vinyl Collection", price: 199.99, image: "/product/p4.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a classic vinyl collection" },
-    { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/product/p5.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a vintage typewriter" },
-    { id: 6, title: "Handmade Leather Bag", price: 159.99, image: "/product/p6.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a handmade leather bag" },
-    { id: 7, title: "Wooden Bookshelf", price: 89.99, image: "/retro.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a wooden bookshelf" },
-    { id: 8, title: "Antique Brass Camera", price: 69.99, image: "/product/p3.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is an antique brass camera" },
+    { id: '1', title: "Vintage Denim Jacket", price: 69.99, image: "/product/p1.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a vintage denim jacket" },
+    { id: '2', title: "Retro Polaroid Camera", price: 89.99, image: "/product/p2.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is a retro polaroid camera" },
+    { id: '3', title: "Mid-Century Modern Chair", price: 129.99, image: "/product/p3.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a mid-century modern chair" },
+    { id: '4', title: "Classic Vinyl Collection", price: 199.99, image: "/product/p4.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a classic vinyl collection" },
+    { id: '5', title: "Vintage Typewriter", price: 79.99, image: "/product/p5.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a vintage typewriter" },
+    { id: '6', title: "Handmade Leather Bag", price: 159.99, image: "/product/p6.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a handmade leather bag" },
+    { id: '7', title: "Wooden Bookshelf", price: 89.99, image: "/retro.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a wooden bookshelf" },
+    { id: '8', title: "Antique Brass Camera", price: 69.99, image: "/product/p3.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is an antique brass camera" },
 ]
 
 const categories = ["All", "Fashion", "Electronics", "Furniture", "Collectibles", "Books", "Sports"]
@@ -58,7 +58,7 @@ const TrendingItems: React.FC = () => {
   return (
     <section className="px-4 py-12">
       <div className="flex flex-col items-center gap-8">
-        <h2 className="text-3xl font-bold">Trending Now</h2>
+        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold">Trending Now</h2>
         
         <Tabs defaultValue="All" className="w-full ">
           <TabsList className="grid w-full grid-cols-7 gap-4">
@@ -67,7 +67,7 @@ const TrendingItems: React.FC = () => {
                 key={category}
                 value={category}
                 onClick={() => setSelectedCategory(category)}
-                className="data-[state=active]:bg-primary data-[state=active]:text-white"
+                className="data-[state=active]:bg-primary data-[state=active]:text-white text-base lg:text-lg xl:text-xl 2xl:text-2xl"
               >
                 {category}
               </TabsTrigger>

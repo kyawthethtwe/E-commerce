@@ -4,7 +4,7 @@ import { persist } from "zustand/middleware";
 
 interface WishlistItem {
   id: string;
-  name: string;
+  title: string;
   price: number;
   image: string;
 }
@@ -20,26 +20,24 @@ interface WishlistStore {
 export const useWishlistStore = create<WishlistStore>()(
     persist(
         (set, get) => ({
-            wishlist: [],
-            isWishlisted: (id) => {
+            wishlist: [], // initialize the wishlist with an empty array
+            isWishlisted: (id) => { // check if item is wishlisted
                 return Boolean(get().wishlist.find((item) => item.id === id));    
             },
-            addWishlist: (item) =>
+            addWishlist: (item) => // add item to wishlist
                 set((state) => {
                     const existingItem = state.wishlist.find((i) => i.id === item.id);
                     if (existingItem) {
-                        return {
-                            wishlist: state.wishlist.filter((i) => i.id !== item.id),
-                        };
+                        return state;   // if the item already exists, return the current state
                     }
-                    return { wishlist: [...state.wishlist, item] };
+                    return { wishlist: [...state.wishlist, item] };  // if it doesn't, add it to the wishlist
                 }),
-            removeWishlist: (id) => 
+            removeWishlist: (id) =>  // remove item from wishlist
                 set((state) => ({
                     wishlist: state.wishlist.filter((item) => item.id !== id),
                 }),
             ),
-            clearWishlist: () => 
+            clearWishlist: () =>  // clear the wishlist
                 set({ wishlist: [] }),
         }) ,
         {

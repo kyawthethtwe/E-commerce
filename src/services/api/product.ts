@@ -15,7 +15,7 @@ export const getSingleProduct = async (id: number) => {
 const relatedProducts = [
     {
       id: "1",
-      name: "Product 1",
+      title: "Product 1",
       description: "Description for product 1",
       category: "Category 1",
       rating: { rate: 4.5, count: 10 },
@@ -24,7 +24,7 @@ const relatedProducts = [
     },
     {
       id: "2",
-      name: "Product 2",
+      title: "Product 2",
       description: "Description for product 2",
       category: "Category 2",
       rating: { rate: 4.5, count: 10 },
@@ -33,7 +33,7 @@ const relatedProducts = [
     },
     {
       id: "3",      
-      name: "Product 3",
+      title: "Product 3",
       description: "Description for product 3",
       category: "Category 3",
       rating: { rate: 4.5, count: 10 },
@@ -42,7 +42,7 @@ const relatedProducts = [
     },
     {
       id: "4",
-      name: "Product 4",   
+      title: "Product 4",   
       description: "Description for product 4",
       category: "Category 4",                       
       rating: { rate: 4.5, count: 10 },
@@ -51,7 +51,7 @@ const relatedProducts = [
     },
     {
       id: "5",
-      name: "Product 5",
+      title: "Product 5",
       description: "Description for product 5",
       category: "Category 5",
       rating: { rate: 4.5, count: 10 },
@@ -60,7 +60,7 @@ const relatedProducts = [
     },
     {
       id: "6",      
-      name: "Product 6", 
+      title: "Product 6", 
       description: "Description for product 6",
       category: "Category 6",
       rating: { rate: 4.5, count: 10 },

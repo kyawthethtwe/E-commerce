@@ -62,8 +62,8 @@ const shakeAnimation = {
 const CategoriesGrid: React.FC = () => {
   return (
     <section className="py-12">
-      <h2 className="text-3xl font-bold mb-8">Shop by Category</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-8">Shop by Category</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (
           // <Link href={`/category/${category.id}`} key={category.id}>
           <Link href={`/products`} key={category.id}>
@@ -80,7 +80,7 @@ const CategoriesGrid: React.FC = () => {
                 >
                   <category.icon size={40} />
                 </motion.div>
-                <span className="font-semibold text-gray-800">{category.name}</span>
+                <span className="font-semibold text-gray-800 text-base xl:text-lg 2xl:text-xl">{category.name}</span>
               </div>
             </motion.div>
           </Link>

@@ -44,13 +44,13 @@ export default function CartPage() {
               >
                 <Image
                   src={item.image || "/placeholder.svg"}
-                  alt={item.name}
+                  alt={item.title}
                   width={80}
                   height={80}
                   className="rounded-md"
                 />
                 <div className="flex-grow">
-                  <h3 className="font-semibold">{item.name}</h3>
+                  <h3 className="font-semibold">{item.title}</h3>
                   <p className="text-primary">${item.price.toFixed(2)}</p>
                 </div>
                 <div className="flex items-center gap-2">

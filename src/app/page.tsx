@@ -1,4 +1,5 @@
- import CategoriesGrid from "@/components/home/category-grid"
+"use client"
+import CategoriesGrid from "@/components/home/category-grid"
 import FeaturedProducts from "@/components/home/feature-product"
 import Hero from "@/components/home/hero"
 import TrendingItems from "@/components/home/trending-products"

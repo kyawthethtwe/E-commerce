@@ -6,7 +6,13 @@ const Hero = () => {
   const router = useRouter()
   return (
     <section className="relative h-[600px] overflow-hidden">
-      <Image src="/bike.jpg" alt="Second-hand marketplace" layout="fill" objectFit="cover" priority />
+      <Image 
+      src="/bike.jpg" 
+      alt="Second-hand marketplace" 
+      fill 
+      priority 
+      className="object-cover w-full h-full" 
+      />
       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
