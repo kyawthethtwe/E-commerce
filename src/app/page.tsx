@@ -1,4 +1,3 @@
-"use client"
 import CategoriesGrid from "@/components/home/category-grid"
 import FeaturedProducts from "@/components/home/feature-product"
 import Hero from "@/components/home/hero"

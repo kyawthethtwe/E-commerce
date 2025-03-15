@@ -21,9 +21,10 @@ const ProductDetail = ({productId} : {productId : string}) => {
   const Id = parseInt(productId)
   // const wishlist = useWishlistStore((state) => state.wishlist)
   const addItem = useCartStore((state) => state.addItem)
+  const wishlist = useWishlistStore((state) => state.wishlist)
   const addToWishlist = useWishlistStore((state) => state.addWishlist)
   const removeFromWishlist = useWishlistStore((state) => state.removeWishlist)
-  const isWishlisted = useWishlistStore((state) => state.isWishlisted)
+  const isWishlisted = (id: number) => wishlist.some((item) => item.id === id)
   const {
     data: product,
     isLoading,
@@ -165,13 +166,13 @@ const ProductDetail = ({productId} : {productId : string}) => {
                 return;
               }
               addItem({
-                id: product.id.toString(),
+                id: product.id,
                 title: product.title,
                 price: product.price,
                 image: product.image,
                 quantity
-              })
-              toast.success("Product added to cart  🛒")
+              });
+              toast.success("Product added to cart  🛒");
               setQuantity(0);
             }}
             // product?.quantity === 0
@@ -201,7 +202,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
                 " w-6 h-6 max-lg:w-5 max-lg:h-5  text-primary",
                 "",
                 {
-                  "fill-primary  ": product && isWishlisted(product.id)
+                  "fill-primary  ": product && isWishlisted(product.id),
                 }
                
               )}

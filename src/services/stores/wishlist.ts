@@ -3,7 +3,7 @@ import { persist } from "zustand/middleware";
 
 
 interface WishlistItem {
-  id: string;
+  id: number;
   title: string;
   price: number;
   image: string;
@@ -11,19 +11,19 @@ interface WishlistItem {
 
 interface WishlistStore {
     wishlist: WishlistItem[];
-    isWishlisted: (id: string) => boolean;
+    // isWishlisted: (id: number) => boolean;
     addWishlist: (item: WishlistItem) => void;
-    removeWishlist: (id: string) => void;
+    removeWishlist: (id: number) => void;
     clearWishlist: () => void;
 }
 // Create a store named useWishlistStore and will modify with the api when api is ready
 export const useWishlistStore = create<WishlistStore>()(
     persist(
-        (set, get) => ({
+        (set) => ({
             wishlist: [], // initialize the wishlist with an empty array
-            isWishlisted: (id) => { // check if item is wishlisted
-                return Boolean(get().wishlist.find((item) => item.id === id));    
-            },
+            // isWishlisted: (id) => { // check if item is wishlisted
+            //     return Boolean(get().wishlist.find((item) => item.id === id));    
+            // },
             addWishlist: (item) => // add item to wishlist
                 set((state) => {
                     const existingItem = state.wishlist.find((i) => i.id === item.id);

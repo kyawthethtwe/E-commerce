@@ -9,11 +9,11 @@ import ProductCard from "@/components/products/product-card"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import MainPadding from "../theme/MainPadding";
 const featuredProducts = [
-  { id: '1', title: "Vintage Leather Jacket", price: 89.99, image: "/retro.jpg", description: "This is a vintage leather jacket", category: "Jacket", rating: { rate: 4.5, count: 20 } },
-  { id: '2', title: "Retro Camera", price: 129.99, image: "/retro.jpg", description: "This is a retro camera", category: "Camera", rating: { rate: 4.5, count: 20 } },
-  { id: '3', title: "Antique Wooden Chair", price: 59.99, image: "/retro.jpg", description: "This is an antique wooden chair", category: "Chair", rating: { rate: 4.5, count: 20 } },
-  { id: '4', title: "Classic Vinyl Record", price: 24.99, image: "/retro.jpg", description: "This is a classic vinyl record", category: "Vinyl", rating: { rate: 4.5, count: 20 } },
-  { id: '5', title: "Vintage Typewriter", price: 79.99, image: "/retro.jpg", description: "This is a vintage typewriter", category: "Typewriter", rating: { rate: 4.5, count: 20 } },
+  { id: 1, title: "Vintage Leather Jacket", price: 89.99, image: "/retro.jpg", description: "This is a vintage leather jacket", category: "Jacket", rating: { rate: 4.5, count: 20 } },
+  { id: 2, title: "Retro Camera", price: 129.99, image: "/retro.jpg", description: "This is a retro camera", category: "Camera", rating: { rate: 4.5, count: 20 } },
+  { id: 3, title: "Antique Wooden Chair", price: 59.99, image: "/retro.jpg", description: "This is an antique wooden chair", category: "Chair", rating: { rate: 4.5, count: 20 } },
+  { id: 4, title: "Classic Vinyl Record", price: 24.99, image: "/retro.jpg", description: "This is a classic vinyl record", category: "Vinyl", rating: { rate: 4.5, count: 20 } },
+  { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/retro.jpg", description: "This is a vintage typewriter", category: "Typewriter", rating: { rate: 4.5, count: 20 } },
 ]
 
 const FeaturedProducts: React.FC = () => {

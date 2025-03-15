@@ -8,19 +8,8 @@ import { useCartStore } from "@/services/stores/cart"
 import { useWishlistStore } from "@/services/stores/wishlist"
 import { toast } from "sonner"
 import { Heart } from "lucide-react"
-import { cn } from "@/lib/utils"
-export interface Product {
-  id: string
-  title: string,
-  description: string
-  category : string
-  rating: {
-    rate : number
-    count : number
-  }
-  price: number
-  image: string
-}
+// import { cn } from "@/lib/utils"
+import { Product } from "@/types/IProduct"
 
 interface ProductCardProps {
   product: Product
@@ -28,11 +17,12 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   const addToCart = useCartStore(state => state.addItem) 
+  const wishlist = useWishlistStore(state => state.wishlist)
   const addToWishlist = useWishlistStore(state => state.addWishlist)
   const removeFromWishlist = useWishlistStore(state => state.removeWishlist)
-  const isWishlisted = useWishlistStore(state => state.isWishlisted)
+  const isWishlisted = (id: number) => wishlist.some(item => item.id === id);
   const handleAddToCart = () => {
-    addToCart({id: product.id.toString(), title: product.title, price: product.price, image: product.image, quantity: 1})
+    addToCart({id: product.id, title: product.title, price: product.price, image: product.image, quantity: 1})
     toast.success("Product added to cart  🛒")
   }
 
@@ -81,8 +71,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <button 
             onClick={() => isWishlisted(product.id) ? handleRemoveFromWishlist() : handleAddToWithlist()}
             className={`mt-4  bg-white text-primary py-2 rounded-md  transition duration-300`}>
-            <Heart size={25} className={cn({ "fill-primary": product && isWishlisted(product.id) }
-            )} />
+            <Heart 
+            size={25} 
+            fill={product && isWishlisted(product.id) ? "currentColor" : "none" }
+            />
           </button>
         </div>
         </div>
