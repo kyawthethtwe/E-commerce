@@ -6,17 +6,44 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { useState } from "react"
 
 const trendingItems = [
-    { id: 1, title: "Vintage Denim Jacket", price: 69.99, image: "/product/p1.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a vintage denim jacket" },
-    { id: 2, title: "Retro Polaroid Camera", price: 89.99, image: "/product/p2.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is a retro polaroid camera" },
-    { id: 3, title: "Mid-Century Modern Chair", price: 129.99, image: "/product/p3.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a mid-century modern chair" },
-    { id: 4, title: "Classic Vinyl Collection", price: 199.99, image: "/product/p4.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a classic vinyl collection" },
-    { id: 5, title: "Vintage Typewriter", price: 79.99, image: "/product/p5.jpg", category: "Collectibles", rating: { rate: 4.5, count: 20 }, description: "This is a vintage typewriter" },
-    { id: 6, title: "Handmade Leather Bag", price: 159.99, image: "/product/p6.jpg", category: "Fashion", rating: { rate: 4.5, count: 20 }, description: "This is a handmade leather bag" },
-    { id: 7, title: "Wooden Bookshelf", price: 89.99, image: "/retro.jpg", category: "Furniture", rating: { rate: 4.5, count: 20 }, description: "This is a wooden bookshelf" },
-    { id: 8, title: "Antique Brass Camera", price: 69.99, image: "/product/p3.jpg", category: "Electronics", rating: { rate: 4.5, count: 20 }, description: "This is an antique brass camera" },
+  {
+    "id": 1,
+    "title": "Classic Red Jogger Sweatpants",
+    "price": 98,
+    "description": "Experience ultimate comfort with our red jogger sweatpants, perfect for both workout sessions and lounging around the house. Made with soft, durable fabric, these joggers feature a snug waistband, adjustable drawstring, and practical side pockets for functionality. Their tapered design and elastic cuffs offer a modern fit that keeps you looking stylish on the go.",
+    "category": "Clothes",
+    "image": "https://i.imgur.com/9LFjwpI.jpeg",
+  },
+  {
+    "id": 2,
+    "title": "Magyar tej",
+    "slug": "magyar-tej",
+    "price": 400000,
+    "description": "finom magyar tej",
+    "category": "Electronics",
+    "image": "https://csomagolasmenedzsment.info/static/img/blog/cs/csomagolas/image/magyar_termek_1.jpg",
+  },
+  {
+    "id": 3,
+    "title": "Classic Red Jogger Sweatpants",
+    "slug": "classic-red-jogger-sweatpants",
+    "price": 98,
+    "description": "Experience ultimate comfort with our red jogger sweatpants, perfect for both workout sessions and lounging around the house. Made with soft, durable fabric, these joggers feature a snug waistband, adjustable drawstring, and practical side pockets for functionality. Their tapered design and elastic cuffs offer a modern fit that keeps you looking stylish on the go.",
+    "category": "Clothes",
+    "image": "https://i.imgur.com/p5NdI6n.jpeg",
+  },
+  {
+    "id": 4,
+    "title": "Classic Red Jogger Sweatpants",
+    "slug": "classic-red-jogger-sweatpants",
+    "price": 98,
+    "description": "Experience ultimate comfort with our red jogger sweatpants, perfect for both workout sessions and lounging around the house. Made with soft, durable fabric, these joggers feature a snug waistband, adjustable drawstring, and practical side pockets for functionality. Their tapered design and elastic cuffs offer a modern fit that keeps you looking stylish on the go.",
+    "category": "Clothes",
+    "image": "https://i.imgur.com/9LFjwpI.jpeg",
+  },  
 ]
 
-const categories = ["All", "Fashion", "Electronics", "Furniture", "Collectibles", "Books", "Sports"]
+const categories = ["All", "Clothes", "Electronics", "Furniture", "Shoes", "Miscellaneous", "Helm Bogo"]
 
 const EmptyState = () => (
     <motion.div

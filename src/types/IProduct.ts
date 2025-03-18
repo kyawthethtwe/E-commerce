@@ -1,12 +1,15 @@
+// export interface Category {
+//     id: number
+//     name: string
+//     slug: string
+//     image: string
+// }
 export interface Product {
     id: number
     title: string
-    description: string
-    category: string
-    rating: {
-      rate: number
-      count: number
-    }
     price: number
+    description: string
+    category:string
     image: string
-  }
+}
+

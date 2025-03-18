@@ -170,7 +170,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
                 title: product.title,
                 price: product.price,
                 image: product.image,
-                quantity
+                quantity: quantity,
               });
               toast.success("Product added to cart  🛒");
               setQuantity(0);
@@ -192,7 +192,12 @@ const ProductDetail = ({productId} : {productId : string}) => {
                 removeFromWishlist(product.id);
                 toast.info("Product removed from wishlist");
               } else {
-                addToWishlist(product);
+                addToWishlist({
+                  id: product.id,
+                  title: product.title,
+                  price: product.price,
+                  image: product.image,
+                });
                 toast.success("Product added to wishlist");
               }
             }}
