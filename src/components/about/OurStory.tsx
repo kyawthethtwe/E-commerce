@@ -78,22 +78,20 @@ export default function OurStory() {
         >
           {/* Timeline line */}
           <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary opacity-20"></div>
-
           {timelineItems.map((item, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`flex flex-col md:flex-row items-center mb-12 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row"
-              }`}
+              className={`flex flex-col  mb-12 md:flex-row`}
             >
-              <div className="md:w-1/2 md:pr-12 md:text-right">
+
+              <div className="md:w-1/2 md:pr-12 md:text-right">  
                 {index % 2 === 0 ? (
-                  <>
+                  <div className="hidden md:block">
                     <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>
                     <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
                     <p className="text-gray-600">{item.description}</p>
-                  </>
+                  </div>
                 ) : (
                   <div className="md:hidden">
                     <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>
@@ -102,7 +100,7 @@ export default function OurStory() {
                   </div>
                 )}
               </div>
-             
+
               <div className="my-4 md:my-0 z-10 hidden md:block">
                 <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white font-bold">
                   {item.year.substring(2)}
@@ -111,11 +109,11 @@ export default function OurStory() {
 
               <div className="md:w-1/2 md:pl-12">
                 {index % 2 !== 0 ? (
-                  <>
-                    <div className="hidden md:block mb-2 text-primary font-bold text-xl">{item.year}</div>
-                    <h3 className="hidden md:block text-2xl font-semibold mb-2">{item.title}</h3>
-                    <p className="hidden md:block text-gray-600">{item.description}</p>
-                  </>
+                  <div className="hidden md:block">
+                    <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>
+                    <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                    <p className="text-gray-600">{item.description}</p>
+                  </div>
                 ) : (
                   <div className="md:hidden">
                     <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>

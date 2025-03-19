@@ -75,6 +75,7 @@ export default function Testimonials() {
             modules={[Pagination, Navigation, Autoplay]}
             spaceBetween={30}
             slidesPerView={1}
+            loop = {true}
             breakpoints={{
               640: {
                 slidesPerView: 1,
@@ -118,7 +119,7 @@ export default function Testimonials() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 flex-grow">{testimonial.text}</p>
+                  <p className="text-gray-600 flex-grow line-clamp-4">{testimonial.text}</p>
                 </div>
               </SwiperSlide>
             ))}

@@ -21,7 +21,7 @@ const trendingItems = [
     "price": 400000,
     "description": "finom magyar tej",
     "category": "Electronics",
-    "image": "https://csomagolasmenedzsment.info/static/img/blog/cs/csomagolas/image/magyar_termek_1.jpg",
+    "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_.jpg",
   },
   {
     "id": 3,
