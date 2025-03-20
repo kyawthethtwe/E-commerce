@@ -4,6 +4,13 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 import ListingCard from "@/components/listings/ListingCard"
 import { useGetLising } from "@/services/queries/listingQueries"
+interface Listing{
+    id: string
+    title: string
+    price: number
+    image: string
+    status: "active" | "sold" | "draft"
+}
 export default function ListingsPage() {
   const router = useRouter()
   const{ data, isLoading, error } = useGetLising()
@@ -37,7 +44,7 @@ export default function ListingsPage() {
         </Button>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {data?.map((listing: any) => (
+        {data?.map((listing: Listing) => (
           <ListingCard
             key={listing.id}
             listing={listing}

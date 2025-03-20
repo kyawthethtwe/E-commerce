@@ -1,0 +1,90 @@
+"use client"
+
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
+import { motion, AnimatePresence } from "framer-motion"
+import { policyData } from "@/data/PolicyData"
+
+export default function PolicyTabs() {
+  const [activeTab, setActiveTab] = useState(policyData[0].id)
+  const searchParams = useSearchParams()
+  const tabParam = searchParams.get("tab")
+
+  useEffect(() => {
+    if (tabParam && policyData.some((policy) => policy.id === tabParam)) {
+      setActiveTab(tabParam)
+    }
+  }, [tabParam])
+
+  const renderPolicyContent = (content: any) => {
+    if (Array.isArray(content)) {
+      return (
+        <ul className="list-disc pl-6 space-y-2">
+          {content.map((item, index) => (
+            <li key={index} className="text-gray-700">
+              {item}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+    return <p className="text-gray-700">{content}</p>
+  }
+
+  return (
+    <section className="py-12">
+      <div className="container mx-auto px-4">
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
+          <TabsList className="w-full justify-start overflow-x-auto">
+            {policyData.map((policy) => (
+              <TabsTrigger key={policy.id} value={policy.id} className="px-4 py-2">
+                {policy.title}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          <AnimatePresence mode="wait">
+            {policyData.map((policy) => (
+              <TabsContent key={policy.id} value={policy.id}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-white rounded-lg shadow-sm border p-6"
+                >
+                  <div className="mb-8">
+                    <h2 className="text-2xl font-semibold mb-2">{policy.title}</h2>
+                    <p className="text-gray-600">{policy.description}</p>
+                  </div>
+
+                  {policy.sections.map((section, sectionIndex) => (
+                    <div key={sectionIndex} className="mb-8">
+                      <h3 className="text-xl font-semibold mb-4 text-primary">{section.title}</h3>
+
+                      <Accordion type="single" collapsible className="space-y-4">
+                        {section.content.map((item, itemIndex) => (
+                          <AccordionItem
+                            key={itemIndex}
+                            value={`${policy.id}-${sectionIndex}-${itemIndex}`}
+                            className="border rounded-lg px-6"
+                          >
+                            <AccordionTrigger className="text-left font-medium py-4">{item.heading}</AccordionTrigger>
+                            <AccordionContent className="pt-2 pb-4">{renderPolicyContent(item.text)}</AccordionContent>
+                          </AccordionItem>
+                        ))}
+                      </Accordion>
+                    </div>
+                  ))}
+                </motion.div>
+              </TabsContent>
+            ))}
+          </AnimatePresence>
+        </Tabs>
+      </div>
+    </section>
+  )
+}
+

@@ -53,7 +53,7 @@ const EmptyState = () => (
     >
       <div className="text-gray-400 mb-4">
         <svg
-          className="mx-auto h-12 w-12"
+          className="mx-auto h-12 w-12 2xl:h-16 2xl:w-16"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -66,10 +66,10 @@ const EmptyState = () => (
           />
         </svg>
       </div>
-      <h3 className="text-lg font-medium text-gray-900 mb-1">
+      <h3 className="text-lg 2xl:text-xl font-medium text-gray-900 mb-1">
         No items found
       </h3>
-      <p className="text-gray-500">
+      <p className="text-gray-500 text-base 2xl:text-lg">
         There are no items available in this category yet.
       </p>
     </motion.div>

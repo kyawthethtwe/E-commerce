@@ -2,7 +2,7 @@ import type React from "react"
 import Image from "next/image"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
-interface ListingCardProps {
+interface ListingProps {
   listing: {
     id: string
     title: string
@@ -13,7 +13,7 @@ interface ListingCardProps {
   actions?: React.ReactNode
 }
 
-export default function ListingCard({ listing, actions }: ListingCardProps) {
+export default function ListingCard({ listing, actions }: ListingProps) {
   return (
     <Card>
       <CardContent className="p-0">

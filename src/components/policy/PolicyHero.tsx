@@ -1,0 +1,25 @@
+"use client"
+
+import { motion } from "framer-motion"
+
+export default function PolicyHero() {
+  return (
+    <section className="bg-primary/10 py-16 md:py-24">
+      <div className="container mx-auto px-4 text-center">
+        <motion.div 
+        initial={{ opacity: 0, y: 20 }} 
+        animate={{ opacity: 1, y: 0 }} 
+        transition={{ duration: 0.8 }}
+        >
+          <h1 className="text-3xl md:text-5xl font-bold mb-6">Our Policies</h1>
+          <p className="text-lg md:text-xl mb-4 max-w-3xl mx-auto text-gray-700">
+            We&apos;re committed to transparency, fairness, and protecting our community. Our policies are designed to create
+            a safe and trustworthy marketplace for everyone.
+          </p>
+          <p className="text-md text-gray-600 max-w-2xl mx-auto">Last updated: March 15, 2023</p>
+        </motion.div>
+      </div>
+    </section>
+  )
+}
+
