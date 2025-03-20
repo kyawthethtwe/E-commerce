@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { motion, AnimatePresence } from "framer-motion"
 import { policyData } from "@/data/PolicyData"
+import MainPadding from "../theme/MainPadding"
 
 export default function PolicyTabs() {
   const [activeTab, setActiveTab] = useState(policyData[0].id)
@@ -35,11 +36,11 @@ export default function PolicyTabs() {
 
   return (
     <section className="py-12">
-      <div className="container mx-auto px-4">
+      <MainPadding>
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
           <TabsList className="w-full justify-start overflow-x-auto">
             {policyData.map((policy) => (
-              <TabsTrigger key={policy.id} value={policy.id} className="px-4 py-2">
+              <TabsTrigger key={policy.id} value={policy.id} className="px-4 py-2 text-sm lg:text-base 2xl:text-lg">
                 {policy.title}
               </TabsTrigger>
             ))}
@@ -56,13 +57,13 @@ export default function PolicyTabs() {
                   className="bg-white rounded-lg shadow-sm border p-6"
                 >
                   <div className="mb-8">
-                    <h2 className="text-2xl font-semibold mb-2">{policy.title}</h2>
-                    <p className="text-gray-600">{policy.description}</p>
+                    <h2 className="text-2xl 2xl:text-3xl font-semibold mb-2">{policy.title}</h2>
+                    <p className="text-gray-600 text-base 2xl:text-lg">{policy.description}</p>
                   </div>
 
                   {policy.sections.map((section, sectionIndex) => (
                     <div key={sectionIndex} className="mb-8">
-                      <h3 className="text-xl font-semibold mb-4 text-primary">{section.title}</h3>
+                      <h3 className="text-xl 2xl:text-2xl font-semibold mb-4 text-primary">{section.title}</h3>
 
                       <Accordion type="single" collapsible className="space-y-4">
                         {section.content.map((item, itemIndex) => (
@@ -71,8 +72,8 @@ export default function PolicyTabs() {
                             value={`${policy.id}-${sectionIndex}-${itemIndex}`}
                             className="border rounded-lg px-6"
                           >
-                            <AccordionTrigger className="text-left font-medium py-4">{item.heading}</AccordionTrigger>
-                            <AccordionContent className="pt-2 pb-4">{renderPolicyContent(item.text)}</AccordionContent>
+                            <AccordionTrigger className="text-left font-medium py-4 text-base 2xl:text-lg">{item.heading}</AccordionTrigger>
+                            <AccordionContent className="pt-2 pb-4 text-base 2xl:text-lg">{renderPolicyContent(item.text)}</AccordionContent>
                           </AccordionItem>
                         ))}
                       </Accordion>
@@ -83,7 +84,7 @@ export default function PolicyTabs() {
             ))}
           </AnimatePresence>
         </Tabs>
-      </div>
+      </MainPadding>
     </section>
   )
 }

@@ -7,27 +7,28 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { faqData } from "@/data/FaqData"
 import { ShoppingCart, Tag, CreditCard, Truck, Shield } from "lucide-react"
+import MainPadding from "../theme/MainPadding"
 
 // Map category names to icons
 const categoryIcons: Record<string, React.ReactNode> = {
-  Buying: <ShoppingCart className="h-5 w-5" />,
-  Selling: <Tag className="h-5 w-5" />,
-  Payments: <CreditCard className="h-5 w-5" />,
-  Shipping: <Truck className="h-5 w-5" />,
-  "Account & Security": <Shield className="h-5 w-5" />,
+  Buying: <ShoppingCart className="h-5 w-5 2xl:h-6 2xl:w-6" />,
+  Selling: <Tag className="h-5 w-5 2xl:h-6 2xl:w-6" />,
+  Payments: <CreditCard className="h-5 w-5 2xl:h-6 2xl:w-6" />,
+  Shipping: <Truck className="h-5 w-5 2xl:h-6 2xl:w-6" />,
+  "Account & Security": <Shield className="h-5 w-5 2xl:h-6 2xl:w-6" />,
 }
 
 export default function FaqAccordion() {
   const [activeTab, setActiveTab] = useState("Buying")
   const [filteredFaqs, setFilteredFaqs] = useState(faqData)
   const searchParams = useSearchParams()
-  const query = searchParams.get("q")
+  const query = searchParams.get("q") // Get search query from URL
 
   // Filter FAQs based on search query
   useEffect(() => {
     if (query) {
-      const lowerCaseQuery = query.toLowerCase()
-
+      const lowerCaseQuery = query.toLowerCase() // Convert query to lowercase for case-insensitive search
+      // Filter FAQs based on search query
       const filtered = faqData
         .map((category) => {
           const filteredItems = category.items.filter(
@@ -38,7 +39,7 @@ export default function FaqAccordion() {
 
           return {
             ...category,
-            items: filteredItems,
+            items: filteredItems, // Update items with filtered items
           }
         })
         .filter((category) => category.items.length > 0) // remove categories with no matches from the list
@@ -50,19 +51,19 @@ export default function FaqAccordion() {
         setActiveTab(filtered[0].category)
       }
     } else {
-      setFilteredFaqs(faqData)
+      setFilteredFaqs(faqData) // Reset FAQs to original data
     }
   }, [query])
 
   return (
     <section className="py-16">
-      <div className="container mx-auto px-4">
+      <MainPadding>
         {query && (
           <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-2">
+            <h2 className="text-2xl 2xl:text-3xl font-semibold mb-2">
               Search results for: <span className="text-primary">&quot;{query}&quot;</span>
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-base 2xl:text-lg">
               {filteredFaqs.reduce((total, category) => total + category.items.length, 0)} results found
             </p>
           </div>
@@ -74,7 +75,7 @@ export default function FaqAccordion() {
               <TabsTrigger
                 key={category.category}
                 value={category.category}
-                className="flex items-center gap-2 px-4 py-2"
+                className="flex items-center gap-2 px-4 py-2 text-sm lg:text-base 2xl:text-lg"
               >
                 {categoryIcons[category.category]}
                 {category.category}
@@ -85,7 +86,7 @@ export default function FaqAccordion() {
           {filteredFaqs.map((category) => (
             <TabsContent key={category.category} value={category.category}>
               <div className="bg-white rounded-lg shadow-sm border p-6">
-                <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+                <h2 className="text-2xl 2xl:text-3xl font-semibold mb-6 flex items-center gap-2">
                   {categoryIcons[category.category]}
                   {category.category} FAQ
                 </h2>
@@ -97,8 +98,8 @@ export default function FaqAccordion() {
                       value={`${category.category}-${index}`}
                       className="border rounded-lg px-6"
                     >
-                      <AccordionTrigger className="text-left font-medium py-4">{item.question}</AccordionTrigger>
-                      <AccordionContent className="pt-2 pb-4 text-gray-600">{item.answer}</AccordionContent>
+                      <AccordionTrigger className="text-left font-medium py-4 text-sm lg:text-base 2xl:text-lg">{item.question}</AccordionTrigger>
+                      <AccordionContent className="pt-2 pb-4 text-gray-600 text-sm lg:text-base 2xl:text-lg">{item.answer}</AccordionContent>
                     </AccordionItem>
                   ))}
                 </Accordion>
@@ -106,7 +107,7 @@ export default function FaqAccordion() {
             </TabsContent>
           ))}
         </Tabs>
-      </div>
+      </MainPadding>
     </section>
   )
 }
