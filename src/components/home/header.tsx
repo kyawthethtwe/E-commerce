@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md">
       <MainPadding className="py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl xl:text-3xl 2xl:text-4xl font-bold text-primary hover:scale-105 transition duration-300">
+        <Link href="/" className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primary hover:scale-105 transition duration-300">
           SecondHand
         </Link>
         <nav className="text-base xl:text-lg 2xl:text-xl">

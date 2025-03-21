@@ -31,15 +31,15 @@ export default function ProductCard({product} : { product: Product }) {
   }
   return (
       <Card className="w-full overflow-hidden">
-          <div className="relative w-full h-[280px] sm:h-[300px] md:h-[340px]  2xl:h-[380px] overflow-hidden">
-          <Link href={`/products/${product.id}`} className="block w-full h-full">
-            <Image
-              src={product.image || "/retro.jpg"}
-              alt={product.title}
-              width={600}
-              height={600}
-              className="w-full h-full object-cover"
-            />
+          <div className="relative w-full h-[280px] sm:h-[300px] md:h-[340px]  2xl:h-[360px] overflow-hidden">
+            <Link href={`/products/${product.id}`} className="block w-full h-full">
+              <Image
+                src={product.image || "/retro.jpg"}
+                alt={product.title}
+                width={600}
+                height={600}
+                className="w-full h-full object-cover"
+              />
             </Link>
             <Button
               onClick={() => isWishlisted(product.id) ? handleRemoveFromWishlist() : handleAddToWithlist()}

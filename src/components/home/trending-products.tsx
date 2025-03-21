@@ -85,7 +85,7 @@ const TrendingItems: React.FC = () => {
   return (
     <section className="px-4 py-12">
       <div className="flex flex-col items-center gap-8">
-        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold">Trending Now</h2>
+        <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold mb-8">Trending Now</h2>
         
         <Tabs defaultValue="All" className="w-full ">
           <TabsList className="grid w-full grid-cols-7 gap-4">

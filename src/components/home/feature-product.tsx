@@ -50,7 +50,7 @@ const FeaturedProducts: React.FC = () => {
   return (
     <div className="py-12">
       <MainPadding>
-        <h2 className="text-2xl xl:text-3xl 2xl:text-4xl font-bold mb-8">Featured Products</h2>
+        <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold mb-8">Featured Products</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full">
         {featuredProducts.map((product) => (
           <ProductCard key={product.id} product={product} />

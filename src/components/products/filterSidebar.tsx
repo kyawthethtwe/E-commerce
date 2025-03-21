@@ -31,11 +31,11 @@ const FilterSidebar = () => {
   }
 
   return (
-    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Filters</h2>
+    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit sticky top-16">
+      <h2 className="text-xl xl:text-2xl font-semibold mb-4">Filters</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">Price Range</h3>
+          <h3 className="text-lg 2xl:text-xl font-medium mb-2">Price Range</h3>
           <Controller
             name="priceRange"
             control={control}
@@ -57,7 +57,7 @@ const FilterSidebar = () => {
           </div>
         </div>
         <div className="mb-6">
-          <h3 className="text-lg font-medium mb-2">Categories</h3>
+          <h3 className="text-lg 2xl:text-xl font-medium mb-2">Categories</h3>
           {categories.map((category) => (
             <div key={category.id} className="flex items-center mb-2">
               <Controller
@@ -76,7 +76,7 @@ const FilterSidebar = () => {
                   />
                 )}
               />
-              <label htmlFor={category.id} className="ml-2 text-sm font-medium">
+              <label htmlFor={category.id} className="ml-2 text-sm xl:text-base font-medium">
                 {category.name}
               </label>
             </div>

@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation"
 const Hero = () => {
   const router = useRouter()
   return (
-    <section className="relative h-[600px] overflow-hidden">
+    <section className="relative h-[500px] md:h-[600px] overflow-hidden">
       <Image 
       src="/bike.jpg" 
       alt="Second-hand marketplace" 
@@ -20,7 +20,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-center text-white"
         >
-          <h1 className="text-4xl md:text-6xl 2xl:text-7xl font-bold mb-4">Discover Unique Treasures</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl font-bold mb-4">Discover Unique Treasures</h1>
           <p className="text-xl md:text-2xl 2xl:text-3xl mb-8">Shop sustainable. Shop second-hand.</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
