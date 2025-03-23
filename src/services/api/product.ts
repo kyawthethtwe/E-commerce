@@ -28,7 +28,7 @@ const relatedProducts = [
     "price": 400000,
     "description": "finom magyar tej",
     "category": "Electronics",
-    "image": "https://csomagolasmenedzsment.info/static/img/blog/cs/csomagolas/image/magyar_termek_1.jpg",
+    "image": "https://i.imgur.com/9LFjwpI.jpeg",
   },
   {
     "id": 3,

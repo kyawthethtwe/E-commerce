@@ -31,7 +31,7 @@ const FilterSidebar = () => {
   }
 
   return (
-    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit sticky top-16">
+    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit sticky top-0">
       <h2 className="text-xl xl:text-2xl font-semibold mb-4">Filters</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">

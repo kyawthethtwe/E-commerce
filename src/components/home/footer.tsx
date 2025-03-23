@@ -35,7 +35,7 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-600 hover:text-primary">
+                <Link href="/policy" className="text-sm lg:text-base xl:text-lg 2xl:text-xl text-gray-600 hover:text-primary">
                   Privacy Policy
                 </Link>
               </li>
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
         </div>
         {/* copy right */}
         <div className="mt-8 pt-8 border-t border-gray-200 text-center">
-          <p className="text-sm lg:text-base xl:text-xl text-gray-600">&copy; 2025 SecondHand. All rights reserved.</p>
+          <p className="text-sm lg:text-base xl:text-xl text-primary">&copy; 2025 SecondHand. All rights reserved.</p>
         </div>
       </MainPadding>
     </footer>

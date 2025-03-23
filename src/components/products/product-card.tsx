@@ -53,7 +53,7 @@ export default function ProductCard({product} : { product: Product }) {
           </div>
 
           <div className="space-y-3 p-4">
-            <h2 className="text-2xl font-bold tracking-tight">{product.title}</h2>
+            <h2 className="text-xl font-semibold tracking-tight">{product.title}</h2>
             <p className="text-zinc-400 line-clamp-2">{product.description}</p>
             <div className="pt-2">
               <Badge variant="outline" className="rounded-full px-6 py-1.5 text-sm border-zinc-700 bg-transparent">
@@ -64,7 +64,7 @@ export default function ProductCard({product} : { product: Product }) {
             <div className="flex items-center justify-between pt-3">
               <div>
                 <p className="text-zinc-400 text-sm">Price</p>
-                <p className="text-2xl font-bold">${product.price.toFixed(2)}</p>
+                <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
               </div>
               <Button onClick={handleAddToCart}>
                 Add To Cart

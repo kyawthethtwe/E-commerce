@@ -123,7 +123,7 @@ export default function RegisterPage() {
                   <Checkbox checked={field.value} onCheckedChange={field.onChange} disabled={isLoading} />
                 </FormControl>
                 <div className="space-y-1 leading-none">
-                  <FormLabel className="text-sm font-normal">
+                  <FormLabel className="text-sm 2xl:text-base font-normal">
                     I agree to the{" "}
                     <Link href="/policies?tab=terms" className="text-primary hover:underline">
                       Terms of Service

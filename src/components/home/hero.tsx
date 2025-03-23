@@ -20,12 +20,12 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
           className="text-center text-white"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-6xl 2xl:text-7xl font-bold mb-4">Discover Unique Treasures</h1>
-          <p className="text-xl md:text-2xl 2xl:text-3xl mb-8">Shop sustainable. Shop second-hand.</p>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl 2xl:text-7xl font-bold mb-4">Discover Unique Treasures</h1>
+          <p className="text-xl sm:text-2xl lg:text-3xl 2xl:text-4xl mb-8">Shop sustainable. Shop second-hand.</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-primary text-white px-8 py-3 rounded-full text-lg 2xl:text-xl font-semibold hover:bg-primary-light1 transition duration-300"
+            className="bg-primary text-white px-8 py-3 rounded-full text-sm sm:text-base lg:text-lg 2xl:text-xl font-semibold hover:bg-primary-light1 transition duration-300"
             onClick={() => router.push("/products")}
           >
             Start Shopping

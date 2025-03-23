@@ -59,7 +59,7 @@ export default function Testimonials() {
     <section className="py-20">
       <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">What Our Community Says</h2>
+          <h2 className="text-3xl md:text-4xl  font-bold mb-4">What Our Community Says</h2>
           <p className="text-lg text-gray-600 max-w-2xl 2xl:max-w-3xl mx-auto">
             Real stories from people who are making a difference through sustainable shopping.
           </p>
@@ -119,7 +119,7 @@ export default function Testimonials() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 flex-grow line-clamp-4">{testimonial.text}</p>
+                  <p className="text-gray-600 flex-grow line-clamp-3">{testimonial.text}</p>
                 </div>
               </SwiperSlide>
             ))}

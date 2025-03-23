@@ -30,11 +30,11 @@ export default function ContactForm() {
         console.log(data)
     }
   return (
-    <main className="w-full max-w-4xl 2xl:max-w-5xl mx-auto py-12 md:py-24">
+    <main className="w-full max-w-4xl 2xl:max-w-6xl mx-auto py-12 md:py-24">
       <div className="space-y-6">
         <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl 2xl:text-5xl">Get in Touch</h1>
-          <p className="mt-2 text-gray-500 dark:text-gray-400 text-base 2xl:text-lg">
+          <h1 className="text-3xl font-bold tracking-tighter md:text-4xl 2xl:text-5xl">Get in Touch</h1>
+          <p className="mt-2 text-gray-500 dark:text-gray-400 text-base md:text-lg xl:text-xl">
             Have a question, suggestion, or issue to report? Fill out the form below and we&apos;ll get back to you as soon
             as possible.
           </p>

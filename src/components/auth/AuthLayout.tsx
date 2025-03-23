@@ -2,7 +2,7 @@
 
 import type React from "react"
 import Link from "next/link"
-import Image from "next/image"
+// import Image from "next/image"
 import { motion } from "framer-motion"
 
 interface AuthLayoutProps {
@@ -17,11 +17,11 @@ interface AuthLayoutProps {
 
 export default function AuthLayout({ children, title, subtitle, backTo }: AuthLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col md:flex-row">
+    <div className="min-h-screen flex flex-col max-w-screen-md 2xl:max-w-screen-lg mx-auto">
       {/* Left side - Branding */}
-      <div className="hidden md:flex md:w-1/2 bg-primary p-8 text-white flex-col justify-between">
+      {/* <div className="hidden md:flex md:w-1/2 bg-primary p-8 text-white flex-col justify-between">
         <div>
-          <Link href="/" className="text-2xl font-bold">
+          <Link href="/" className="text-2xl 2xl:text-3xl font-bold">
             SecondHand
           </Link>
           <h2 className="mt-12 text-4xl font-bold">Welcome to SecondHand</h2>
@@ -32,25 +32,25 @@ export default function AuthLayout({ children, title, subtitle, backTo }: AuthLa
         <div className="relative h-64 w-full">
           <Image src="/auth-illustration.svg" alt="Authentication illustration" fill className="object-contain" />
         </div>
-      </div>
+      </div> */}
 
       {/* Right side - Auth form */}
-      <div className="flex-1 flex flex-col justify-center items-center p-8">
+      <div className="flex-1 flex flex-col justify-center items-center p-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="w-full max-w-md"
+          className="w-full "
         >
           <div className="text-center mb-8">
-            <h1 className="text-2xl font-bold">{title}</h1>
-            <p className="text-gray-600 mt-2">{subtitle}</p>
+            <h1 className="text-2xl 2xl:text-3xl font-bold">{title}</h1>
+            <p className="text-gray-600 mt-2 text-base 2xl:text-lg">{subtitle}</p>
           </div>
 
           {children}
 
           {backTo && (
-            <div className="text-center mt-6">
+            <div className="text-center mt-6 text-base 2xl:text-lg">
               <Link href={backTo.href} className="text-primary hover:underline">
                 {backTo.label}
               </Link>

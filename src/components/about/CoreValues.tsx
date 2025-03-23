@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Leaf, Shield, DollarSign, Users, Recycle } from "lucide-react"
+import MainPadding from "../theme/MainPadding"
 
 const values = [
   {
@@ -56,7 +57,7 @@ export default function CoreValues() {
 
   return (
     <section className="py-20">
-      <div className="container px-4 mx-auto">
+      <MainPadding className="">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -87,7 +88,7 @@ export default function CoreValues() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </MainPadding>
     </section>
   )
 }

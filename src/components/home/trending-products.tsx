@@ -104,7 +104,7 @@ const TrendingItems: React.FC = () => {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 w-full"
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full"
         >
           <AnimatePresence mode="wait">
           {filteredItems.length > 0 ? (

@@ -47,7 +47,7 @@ export default function WishlistPage() {
   }
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div >
       <h1 className="text-3xl font-bold mb-8">My Wishlist</h1>
       <div className="grid md:grid-cols-3 gap-8">
         <div className="md:col-span-2">

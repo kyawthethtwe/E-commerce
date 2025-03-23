@@ -1,4 +1,4 @@
-import { Banner } from "@/components/home/banner";
+import { Banner } from "@/components/share/banner";
 import ContactForm from "@/components/contact/contact-form";
 
 export default function Contact() {
