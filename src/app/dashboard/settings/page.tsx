@@ -72,7 +72,7 @@ export default function SettingsPage() {
   return (
     <div>
       <h2 className="text-2xl font-semibold mb-6">Profile Settings</h2>
-      <div className="max-w-2xl">
+      <div className="">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
             <div className="grid grid-cols-2 gap-4">

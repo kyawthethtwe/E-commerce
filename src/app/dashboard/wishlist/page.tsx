@@ -48,9 +48,8 @@ export default function WishlistPage() {
 
   return (
     <div >
-      <h1 className="text-3xl font-bold mb-8">My Wishlist</h1>
-      <div className="grid md:grid-cols-3 gap-8">
-        <div className="md:col-span-2">
+      <h1 className="xl:text-3xl text-lg sm:text-xl md:text-2xl font-semibold text-center mb-8">My Wishlist</h1>
+        <div className="w-full">
           <AnimatePresence>
             {wishlist.map((item) => (
               <motion.div
@@ -69,8 +68,8 @@ export default function WishlistPage() {
                   className="rounded-md"
                 />
                 <div className="flex-grow">
-                  <h3 className="font-semibold">{item.title}</h3>
-                  <p className="text-primary">${item.price.toFixed(2)}</p>
+                  <h3 className="font-semibold text-sm lg:text-base">{item.title}</h3>
+                  <p className="text-primary text-sm lg:text-base">${item.price.toFixed(2)}</p>
                 </div>
                 <Button  
                   size="icon" 
@@ -78,14 +77,14 @@ export default function WishlistPage() {
                     removeWishlist(item.id)
                     toast.info("Product removed from wishlist")
                   }}
+                  className="shrink-0"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash2 className="h-4 w-4 " />
                 </Button>
               </motion.div>
             ))}
           </AnimatePresence>
         </div>
-      </div>
     </div>
   )
 }
