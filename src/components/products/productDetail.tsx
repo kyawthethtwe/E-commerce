@@ -14,12 +14,12 @@ import { cn } from "@/lib/utils"
 import { useCartStore } from "@/services/stores/cart"
 import { useWishlistStore } from "@/services/stores/wishlist"
 import { toast } from "sonner"
+import { Loading } from "../theme/Loading"
 const images = ["/retro.jpg", "/retro.jpg", "/retro.jpg", "/retro.jpg"]
 const ProductDetail = ({productId} : {productId : string}) => {
   const [showAR, setShowAR] = React.useState(false)
   const [quantity, setQuantity] = React.useState(1)
   const Id = parseInt(productId)
-  // const wishlist = useWishlistStore((state) => state.wishlist)
   const addItem = useCartStore((state) => state.addItem)
   const wishlist = useWishlistStore((state) => state.wishlist)
   const addToWishlist = useWishlistStore((state) => state.addWishlist)
@@ -29,8 +29,42 @@ const ProductDetail = ({productId} : {productId : string}) => {
     data: product,
     isLoading,
   } = useSingleProduct(Id)
+  const handleAddToCart = () => {
+    if (quantity <= 0 || !product) return;
+    
+    addItem({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      image: product.image,
+      quantity: quantity,
+    });
+    toast.success("Product added to cart 🛒");
+    setQuantity(1); // Reset to 1 instead of 0 for better UX
+  };
+
+  const handleToggleWishlist = () => {
+      if (!product) return;
+
+      if (isWishlisted(product.id)) {
+        removeFromWishlist(product.id);
+        toast.info("Product removed from wishlist");
+      } else {
+        addToWishlist({
+          id: product.id,
+          title: product.title,
+          price: product.price,
+          image: product.image,
+        });
+        toast.success("Product added to wishlist");
+      }
+  }
+  
   if (isLoading) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>
+    return <Loading />
+  }
+  if (!product) {
+    return <div className="flex justify-center items-center text-4xl text-primary ">Product not found</div>
   }
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
@@ -101,22 +135,19 @@ const ProductDetail = ({productId} : {productId : string}) => {
             <p className="text-gray-600">Rating ⭐️</p>
         </div>
         <div className=" border-primary-light2 border rounded-lg h-12 max-lg:h-10 flex justify-between items-center mt-2">
+          {/* Minus Button */}
           <button
             className=" w-16 h-full flex justify-center items-center disabled:opacity-40"
             disabled={quantity <= 1}
-            onClick={() => {
-              if (quantity <= 1) {
-                return;
-              }
-              setQuantity((prev) => prev - 1);
-            }}
+            onClick={() => setQuantity((prev) => prev - 1) }
           >
             <Minus className=" w-6 h-6" />
           </button>
+          {/* Quantity Input */}
           <input
             type="text"
             value={quantity}
-            min={0}
+            min={1}
             onChange={(e) => {
               // check if input is number
               if (isNaN(+e.target.value)) {
@@ -131,8 +162,9 @@ const ProductDetail = ({productId} : {productId : string}) => {
 
               setQuantity(+e.target.value);
             }}
-            className="w-full h-full text-center"
+            className="w-full h-full text-center focus:ring-0 focus:outline-none"
           />
+          {/* Plus Button */}
           <button
             className=" w-16 h-full flex justify-center items-center"
             onClick={() => {
@@ -143,6 +175,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
           </button>
         </div>
         <div className="flex gap-4 mt-4">
+          {/* buy button */}
           <button
             className=" bg-primary  w-full rounded-lg h-12 max-lg:h-10 text-white disabled:opacity-40  hover:bg-primary-light2 disabled:cursor-not-allowed"
             onClick={() => {
@@ -156,25 +189,10 @@ const ProductDetail = ({productId} : {productId : string}) => {
           >
           Buy
           </button>
+          {/* add to cart button */}
           <button
             className=" border border-primary text-primary  w-full rounded-lg h-12 max-lg:h-10 flex justify-center gap-4 max-md:gap-2  max-375:text-xs max-md:text-sm items-center disabled:opacity-40 disabled:cursor-not-allowed disabled:text-[#707070] disabled:border-[#707070]"
-            onClick={() => {
-              if (quantity <= 0) {
-                return;
-              }
-              if (!product) {
-                return;
-              }
-              addItem({
-                id: product.id,
-                title: product.title,
-                price: product.price,
-                image: product.image,
-                quantity: quantity,
-              });
-              toast.success("Product added to cart  🛒");
-              setQuantity(0);
-            }}
+            onClick={handleAddToCart}
             // product?.quantity === 0
             disabled={quantity === 0 }
           >
@@ -183,24 +201,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
           </button>
           <button
             className=" border border-primary text-primary  w-full rounded-lg h-12 max-lg:h-10 flex justify-center gap-4  max-lg:gap-2 max-lg:text-sm max-375:text-xs max-375:gap-1 items-center"
-            onClick={() => {
-              // handleAddFavorite();
-              if (!product) {
-                return;
-              }
-              if (isWishlisted(product.id)) {
-                removeFromWishlist(product.id);
-                toast.info("Product removed from wishlist");
-              } else {
-                addToWishlist({
-                  id: product.id,
-                  title: product.title,
-                  price: product.price,
-                  image: product.image,
-                });
-                toast.success("Product added to wishlist");
-              }
-            }}
+            onClick={handleToggleWishlist}
           >
             <Heart
               className={cn(
@@ -212,9 +213,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
                
               )}
             />
-            {/* {FavoriteItemList?.includes(product?.id ?? "")
-              ? "remove from wishlist" : "add to wishlist"} */}
-            add to wishlist
+            {product && isWishlisted(product.id) ? "Remove from Wishlist" : "Add to Wishlist"}
           </button>
         </div>
       </div>

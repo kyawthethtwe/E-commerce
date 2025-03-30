@@ -30,7 +30,7 @@ export default function ProductCard({product} : { product: Product }) {
     toast.success("Product removed from wishlist 💔")
   }
   return (
-      <Card className="w-full overflow-hidden">
+      <Card className="w-full h-full overflow-hidden">
           <div className="relative w-full h-[280px] sm:h-[300px] md:h-[340px]  2xl:h-[360px] overflow-hidden">
             <Link href={`/products/${product.id}`} className="block w-full h-full">
               <Image
@@ -44,7 +44,7 @@ export default function ProductCard({product} : { product: Product }) {
             <Button
               onClick={() => isWishlisted(product.id) ? handleRemoveFromWishlist() : handleAddToWithlist()}
               className={cn(
-                "absolute top-4 right-4 z-10",
+                "absolute top-2 right-2 z-10",
                 isWishlisted(product.id) ? "text-red-500" : "text-white"
               )}
             >
