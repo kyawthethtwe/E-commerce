@@ -39,13 +39,13 @@ export default function TeamMemberCard({
           fill
           priority
           sizes="100%"
-          className="object-cover w-full h-full"
+          className="object-contain w-full h-full"
         />
       </div>
       <div className="p-6">
-        <h3 className="text-xl font-semibold">{name}</h3>
-        <p className="text-primary font-medium mb-2">{role}</p>
-        <p className="text-gray-600 mb-4">{bio}</p>
+        <h3 className="text-xl 2xl:text-2xl font-semibold">{name}</h3>
+        <p className="text-primary text-base 2xl:text-lg font-medium mb-2">{role}</p>
+        <p className="text-gray-600 text-base 2xl:text-lg mb-4">{bio}</p>
         <div className="flex space-x-4">
           <Link
             href={social.twitter}

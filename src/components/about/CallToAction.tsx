@@ -37,17 +37,16 @@ export default function CallToAction() {
           animate={inView ? "visible" : "hidden"}
           className="text-center"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl font-bold mb-4">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">
             Join Our Sustainable Marketplace
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg max-w-2xl mx-auto mb-12 text-white/80">
-            staggerChildren: 0.2,
+          <motion.p variants={itemVariants} className="text-lg md:text-xl 2xl:text-2xl max-w-2xl xl:max-w-4xl mx-auto mb-12 text-white/80">
             Whether you&apos;re looking to find unique items, declutter your space, or simply make more sustainable choices,
             we&apos;re here to help.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-col md:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary" className="flex items-center gap-2">
+            <Button asChild size="lg" variant="secondary" className="flex items-center gap-2 text-base 2xl:text-lg">
               <Link href="/products">
                 <ShoppingBag className="w-5 h-5" />
                 Explore Marketplace
@@ -58,7 +57,7 @@ export default function CallToAction() {
               asChild
               size="lg"
               variant="outline"
-              className="flex items-center gap-2 bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              className="flex items-center text-base 2xl:text-lg gap-2 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
               <Link href="/auth/signup">
                 <UserPlus className="w-5 h-5" />
@@ -70,7 +69,7 @@ export default function CallToAction() {
               asChild
               size="lg"
               variant="outline"
-              className="flex items-center gap-2 bg-transparent border-white text-white hover:bg-white hover:text-primary"
+              className="flex items-center text-base 2xl:text-lg gap-2 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
               <Link href="/dashboard/listings/new">
                 <Upload className="w-5 h-5" />

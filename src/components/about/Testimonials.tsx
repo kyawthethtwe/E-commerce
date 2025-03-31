@@ -59,8 +59,8 @@ export default function Testimonials() {
     <section className="py-20">
       <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl  font-bold mb-4">What Our Community Says</h2>
-          <p className="text-lg text-gray-600 max-w-2xl 2xl:max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">What Our Community Says</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
             Real stories from people who are making a difference through sustainable shopping.
           </p>
         </div>
@@ -96,30 +96,30 @@ export default function Testimonials() {
               <SwiperSlide key={index}>
                 <div className="bg-white rounded-lg p-8 shadow-md h-full flex flex-col">
                   <div className="flex items-center mb-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden mr-4">
+                    <div className="relative w-14 2xl:w-16 h-14 2xl:h-16 rounded-full overflow-hidden mr-4">
                       <Image
                         src={testimonial.image || "/placeholder.svg"}
                         alt={testimonial.name}
                         fill
-                        className="object-cover"
+                        className="object-cover w-full h-full"
                       />
                     </div>
                     <div>
-                      <h3 className="font-semibold">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-500">{testimonial.location}</p>
+                      <h3 className="font-semibold text-base 2xl:text-lg">{testimonial.name}</h3>
+                      <p className="text-sm text-gray-500 2xl:text-base">{testimonial.location}</p>
                     </div>
                   </div>
                   <div className="flex mb-4">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className={`w-5 h-5 ${
+                        className={`w-5 h-5 2xl:w-6 2xl:h-6 ${
                           i < testimonial.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-300"
                         }`}
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 flex-grow line-clamp-3">{testimonial.text}</p>
+                  <p className="text-gray-600 flex-grow line-clamp-3 text-base 2xl:text-lg">{testimonial.text}</p>
                 </div>
               </SwiperSlide>
             ))}

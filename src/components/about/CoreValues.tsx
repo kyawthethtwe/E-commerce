@@ -59,8 +59,8 @@ export default function CoreValues() {
     <section className="py-20">
       <MainPadding className="">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">Our Core Values</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
             These principles guide everything we do, from how we build our platform to how we interact with our
             community.
           </p>
@@ -83,8 +83,8 @@ export default function CoreValues() {
               <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-6">
                 <value.icon className="w-7 h-7 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
-              <p className="text-gray-600">{value.description}</p>
+              <h3 className="text-xl 2xl:text-2xl font-semibold mb-3">{value.title}</h3>
+              <p className="text-gray-600 text-base 2xl:text-lg">{value.description}</p>
             </motion.div>
           ))}
         </motion.div>
