@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { faqData } from "@/data/FaqData"
 import { ShoppingCart, Tag, CreditCard, Truck, Shield } from "lucide-react"
 import MainPadding from "../theme/MainPadding"
-
+import { Suspense } from "react"
 // Map category names to icons
 const categoryIcons: Record<string, React.ReactNode> = {
   Buying: <ShoppingCart className="h-5 w-5 2xl:h-6 2xl:w-6" />,
@@ -18,7 +18,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   "Account & Security": <Shield className="h-5 w-5 2xl:h-6 2xl:w-6" />,
 }
 
-export default function FaqAccordion() {
+function FaqAccordion() {
   const [activeTab, setActiveTab] = useState("Buying")
   const [filteredFaqs, setFilteredFaqs] = useState(faqData)
   const searchParams = useSearchParams()
@@ -112,3 +112,11 @@ export default function FaqAccordion() {
   )
 }
 
+
+export default function FaqAccordions() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+      <FaqAccordion />
+    </Suspense>
+  )
+}

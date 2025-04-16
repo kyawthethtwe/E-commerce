@@ -271,13 +271,13 @@ export default function Checkout() {
                 <div key={item.id} className="flex gap-4">
                   <Image
                     src={item.image || "/placeholder.svg"}
-                    alt={item.name}
+                    alt={item.title}
                     width={60}
                     height={60}
                     className="rounded-md"
                   />
                   <div className="flex-grow">
-                    <h3 className="font-medium">{item.name}</h3>
+                    <h3 className="font-medium">{item.title}</h3>
                     <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
                   </div>
                   <p className="font-medium">${(item.price * item.quantity).toFixed(2)}</p>

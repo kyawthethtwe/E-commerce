@@ -10,8 +10,8 @@ import { Input } from "@/components/ui/input"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
 import { Loader2 } from "lucide-react"
 import AuthLayout from "@/components/auth/AuthLayout"
-
-export default function ResetPasswordPage() {
+import { Suspense } from "react"
+function ResetPasswordPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -112,6 +112,14 @@ export default function ResetPasswordPage() {
         </form>
       </Form>
     </AuthLayout>
+  )
+}
+
+export default function ResetPassword() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+      <ResetPasswordPage />
+    </Suspense>
   )
 }
 

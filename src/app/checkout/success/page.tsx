@@ -6,8 +6,13 @@ import { CheckCircle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation"
 
+interface Order {
+  id: string;
+  // Add other order properties as needed
+}
+
 export default function SuccessPage() {
-  const [order, setOrder] = useState<any>(null)
+  const [order, setOrder] = useState<Order | null>(null)
   const searchParams = useSearchParams()
   const router = useRouter()
   const sessionId = searchParams.get("session_id")

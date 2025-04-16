@@ -10,7 +10,7 @@ import { toast } from "sonner"
 export default function CartPage() {
   const { items, removeItem, updateQuantity, getTotal } = useCartStore()
   const router = useRouter()
-  const handleQuantityChange = (id: string , quantity: number ) => {
+  const handleQuantityChange = (id: number , quantity: number ) => {
     if(quantity === 0){
       removeItem(id)
       toast.info("Product removed from cart")
