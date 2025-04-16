@@ -3,13 +3,13 @@
 import { motion } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Navigation, Autoplay, Scrollbar, Mousewheel} from 'swiper/modules';
+import { Pagination, Autoplay, Scrollbar, Mousewheel} from 'swiper/modules';
 
 import "swiper/css"
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 import Image from "next/image"
-import { Mouse, Star } from "lucide-react"
+import { Star } from "lucide-react"
 import MainPadding from "../theme/MainPadding"
 import "./custom.css"
 const testimonials = [

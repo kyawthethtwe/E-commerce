@@ -5,9 +5,15 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2025-02-24.acacia",
 })
 
-export async function GET(req: Request, { params}: { params : { id: string}}){
+
+type Params = Promise<{
+    id: string
+}>
+
+export async function GET(req: Request, { params }: { params: Params }) {
     try {
-        const paymenIntent = await stripe.paymentIntents.retrieve(params.id);
+        const { id } = await params;
+        const paymenIntent = await stripe.paymentIntents.retrieve(id);
         const items = JSON.parse(paymenIntent.metadata.items);
         const shippingAddress = JSON.parse(paymenIntent.metadata.shippingAddress || "{}");
 

@@ -7,8 +7,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { motion, AnimatePresence } from "framer-motion"
 import { policyData } from "@/data/PolicyData"
 import MainPadding from "../theme/MainPadding"
+import { Suspense } from "react"
 
-export default function PolicyTabs() {
+function PolicyTabs() {
   const [activeTab, setActiveTab] = useState(policyData[0].id)
   const searchParams = useSearchParams()
   const tabParam = searchParams.get("tab")
@@ -19,7 +20,7 @@ export default function PolicyTabs() {
     }
   }, [tabParam])
 
-  const renderPolicyContent = (content: any) => {
+  const renderPolicyContent = (content: string | string[]) => {
     if (Array.isArray(content)) {
       return (
         <ul className="list-disc pl-6 space-y-2">
@@ -89,3 +90,10 @@ export default function PolicyTabs() {
   )
 }
 
+export default function PolicyTab() {
+  return (
+    <Suspense fallback={<div className="flex justify-center items-center h-screen">Loading...</div>}>
+      <PolicyTabs />
+    </Suspense>
+  )
+}

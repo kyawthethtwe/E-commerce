@@ -7,7 +7,6 @@ import "swiper/css"
 import "swiper/css/navigation"
 import "swiper/css/pagination"
 import { Button } from "@/components/ui/button"
-import ModelViewer from "../Model"
 import { Heart, Minus, Plus, ShoppingCart } from "lucide-react";
 import { useSingleProduct } from "@/services/queries/productQueries"
 import { cn } from "@/lib/utils"
@@ -82,7 +81,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
               auto-rotate
               style={{ width: "100%", height: "400px" }}
             /> */}
-            <ModelViewer
+            {/* <ModelViewer
               src={product?.image}
               alt={`3D model of ${product?.title}`}
               ar
@@ -91,7 +90,7 @@ const ProductDetail = ({productId} : {productId : string}) => {
               shadow-intensity="1"
               auto-rotate
               style={{ width: "100%", height: "400px" }}
-            />
+            /> */}
           </Suspense>
         ) : (
           <Swiper
