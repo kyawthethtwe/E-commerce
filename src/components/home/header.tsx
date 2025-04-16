@@ -3,12 +3,20 @@ import { Search, ShoppingCart, User } from "lucide-react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import MainPadding from "../theme/MainPadding";
+import Image from "next/image";
 const Header = () => {
   return (
     <header className="bg-white shadow-md">
       <MainPadding className="py-4 flex items-center justify-between">
-        <Link href="/" className="text-2xl lg:text-3xl 2xl:text-4xl font-bold text-primary hover:scale-105 transition duration-300">
-          SecondHand
+        <Link href="/" className="hover:scale-105 transition duration-300 ">
+          <Image 
+            src="/logo.jpeg" 
+            alt="SecondHand Logo" 
+            className="h-8 md:h-10 lg:h-12 2xl:h-14 w-8 md:w-10 lg:w-12 2xl:w-14 rounded-full "
+            width={200}
+            height={80}
+            priority
+          />
         </Link>
         <nav className="text-base xl:text-lg 2xl:text-xl">
           <ul className="flex space-x-4">

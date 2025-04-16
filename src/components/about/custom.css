@@ -1,5 +1,7 @@
 .testimonials-swiper {
     padding-bottom: 60px;
+    /* padding-left: 60px;
+    padding-right: 60px; */
   }
 
   .testimonials-swiper .swiper-pagination {
@@ -20,5 +22,6 @@
   .testimonials-swiper .swiper-button-next,
   .testimonials-swiper .swiper-button-prev {
     color: #113B70;
+    
     
   }

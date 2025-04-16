@@ -7,8 +7,15 @@ import RenderPagination from "../pagination"
 import { Loading } from "../theme/Loading"
 const ProductListings = () => {
   const [currentPage, setCurrentPage] = React.useState(1)
-  const { data , isLoading } = useGetProducts()
+  const { data , isLoading, isError } = useGetProducts()
   const totalPages = Math.ceil((data?.length?? 0) / 12)
+
+  if(isLoading) {
+    return <Loading/>
+  }
+  if(isError){
+    return <div className="flex flex-grow justify-center items-center text-center text-4xl text-primary ">Something went wrong! Please try again!</div>
+  }
   return (
     <div className="flex-1">
       <div className="flex justify-end mb-4 ">
@@ -25,12 +32,12 @@ const ProductListings = () => {
         </Select>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
-        {isLoading && <Loading />}
         {data?.map((product) => (
             <ProductCard key={product.id} product={product} />
         ))}
       </div> 
-      <RenderPagination 
+      {data &&
+        <RenderPagination 
        currentPage= {currentPage}
        totalPages= {totalPages}
        onPageChange={(page) => setCurrentPage(page)}
@@ -38,6 +45,7 @@ const ProductListings = () => {
        prevPage={() => setCurrentPage((prev) => prev - 1)}
        className="my-16"
        />
+       }
     </div>
   )
 }

@@ -59,7 +59,7 @@ export default function CallToAction() {
               variant="outline"
               className="flex items-center text-base 2xl:text-lg gap-2 bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
-              <Link href="/auth/signup">
+              <Link href="/auth/register">
                 <UserPlus className="w-5 h-5" />
                 Create Account
               </Link>
