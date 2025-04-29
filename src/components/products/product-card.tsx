@@ -31,7 +31,7 @@ export default function ProductCard({product} : { product: Product }) {
   }
   return (
       <Card className="w-full h-full overflow-hidden">
-          <div className="relative w-full h-[280px] sm:h-[300px] md:h-[340px]  2xl:h-[360px] overflow-hidden">
+          <div className="relative w-full h-[150px] sm:h-[200px] md:h-[240px] xl:h-[260px] overflow-hidden">
             <Link href={`/products/${product.id}`} className="block w-full h-full">
               <Image
                 src={product.image || "/retro.jpg"}
@@ -52,21 +52,21 @@ export default function ProductCard({product} : { product: Product }) {
             </Button>
           </div>
 
-          <div className="space-y-3 p-4">
-            <h2 className="text-xl font-semibold tracking-tight">{product.title}</h2>
-            <p className="text-zinc-400 line-clamp-2">{product.description}</p>
-            <div className="pt-2">
-              <Badge variant="outline" className="rounded-full px-6 py-1.5 text-sm border-zinc-700 bg-transparent">
+          <div className="space-y-1 sm:space-y-2 md:space-y-3 p-2 sm:p-3 md:p-4">
+            <h2 className="text-sm md:text-base xl:text-lg font-semibold tracking-tight line-clamp-1">{product.title}</h2>
+            <p className="text-zinc-400 text-xs md:text-sm line-clamp-2">{product.description}</p>
+            <div className="pt-1 sm:pt-2">
+              <Badge variant="outline" className="rounded-full px-2 md:px-3 xl:px-6 py-1 md:py-1.5 text-[8px] md:text-xs border-zinc-700 bg-transparent">
                 {product.category}
               </Badge>
             </div>
 
-            <div className="flex items-center justify-between pt-3">
+            <div className="flex items-center justify-between pt-1 sm:pt-2 md:pt-3">
               <div>
-                <p className="text-zinc-400 text-sm">Price</p>
-                <p className="text-xl font-semibold">${product.price.toFixed(2)}</p>
+                <p className="text-zinc-400 text-xs sm:text-sm">Price</p>
+                <p className="text-sm sm:text-base md:text-base font-semibold">${product.price.toFixed(2)}</p>
               </div>
-              <Button onClick={handleAddToCart}>
+              <Button onClick={handleAddToCart} size="sm">
                 Add To Cart
               </Button>
             </div>

@@ -33,14 +33,14 @@ const FeaturedProducts: React.FC = () => {
   const { data, isLoading, error } = useGetProducts()
   
   // Take just the first 3 products for the featured section
-  const featuredProducts = data?.slice(0, 3) || []
+  const featuredProducts = data?.slice(0, 4) || []
 
   if (isLoading) {
     return (
       <div className="py-12">
         <MainPadding>
           <h2 className="text-2xl lg:text-3xl 2xl:text-4xl font-bold mb-8">Featured Products</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full min-h-[400px] flex items-center justify-center">
+          <div className="gap-10 w-full min-h-[400px] flex items-center justify-center">
             <Loading />
           </div>
         </MainPadding>
@@ -77,7 +77,7 @@ const FeaturedProducts: React.FC = () => {
         </div>
         
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full"
+          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

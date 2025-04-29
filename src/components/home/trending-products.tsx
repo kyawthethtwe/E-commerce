@@ -112,7 +112,7 @@ const TrendingItems = () => {
 
         <motion.div 
           layout
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-10 w-full"
+          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

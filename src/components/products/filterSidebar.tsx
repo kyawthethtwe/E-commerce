@@ -1,9 +1,16 @@
 "use client"
-import { useForm, Controller } from "react-hook-form"
-import { Slider } from "@/components/ui/slider"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { Checkbox } from "@/components/ui/checkbox"
+import { Slider } from "@/components/ui/slider"
+import { useRouter, useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
+import { Controller, useForm } from "react-hook-form"
+
+interface FilterSidebarProps {
+  initialCategory?: string;
+  initialQuery?: string;
+}
+
 const categories = [
   { id: "clothing", name: "Clothing" },
   { id: "electronics", name: "Electronics" },
@@ -11,27 +18,64 @@ const categories = [
   { id: "books", name: "Books" },
 ]
 
-const FilterSidebar = () => {
-  const [priceRange, setPriceRange] = useState([0, 1000]) // Add state for price range
+const FilterSidebar: React.FC<FilterSidebarProps> = ({ initialCategory, initialQuery }) => {
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const [priceRange, setPriceRange] = useState([0, 1000])
+  
   interface FormValues {
     priceRange: number[];
     categories: string[];
   }
 
-  const { control, handleSubmit } = useForm<FormValues>({
+  const { control, handleSubmit, setValue } = useForm<FormValues>({
     defaultValues: {
       priceRange: [0, 1000],
-      categories: [],
+      categories: initialCategory ? [initialCategory.toLowerCase()] : [],
     },
   })
 
+  // Initialize form with URL parameters
+  useEffect(() => {
+    if (initialCategory) {
+      setValue('categories', [initialCategory.toLowerCase()])
+    }
+    
+    // Handle price range from URL if present
+    const minPrice = searchParams.get('minPrice')
+    const maxPrice = searchParams.get('maxPrice')
+    
+    if (minPrice && maxPrice) {
+      const newPriceRange = [parseInt(minPrice), parseInt(maxPrice)]
+      setPriceRange(newPriceRange)
+      setValue('priceRange', newPriceRange)
+    }
+  }, [initialCategory, searchParams, setValue])
+
   const onSubmit = (data: FormValues) => {
-    console.log(data)
-    // Here you would typically update the global state or make an API call
+    // Build the query string
+    const params = new URLSearchParams()
+    
+    // Add search query if it exists
+    if (initialQuery) {
+      params.append('q', initialQuery)
+    }
+    
+    // Add category filter (only use the first one for simplicity)
+    if (data.categories.length > 0) {
+      params.append('category', data.categories[0])
+    }
+    
+    // Add price range
+    params.append('minPrice', data.priceRange[0].toString())
+    params.append('maxPrice', data.priceRange[1].toString())
+    
+    // Navigate to the new URL
+    router.push(`/products?${params.toString()}`)
   }
 
   return (
-    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit sticky top-0">
+    <aside className="w-full md:w-64 bg-white p-6 rounded-lg shadow-md h-fit sticky top-20">
       <h2 className="text-xl xl:text-2xl font-semibold mb-4">Filters</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-6">
@@ -82,9 +126,19 @@ const FilterSidebar = () => {
             </div>
           ))}
         </div>
-        <Button type="submit" className="w-full">
-          Apply Filters
-        </Button>
+        <div className="flex gap-2">
+          <Button type="submit" className="w-full">
+            Apply Filters
+          </Button>
+          <Button 
+            type="button" 
+            
+            className="flex-shrink-0"
+            onClick={() => router.push('/products')}
+          >
+            Reset
+          </Button>
+        </div>
       </form>
     </aside>
   )
