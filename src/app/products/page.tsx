@@ -16,12 +16,12 @@ interface SearchParams {
   maxPrice?: string;
 }
 
-export default function ProductPage({ 
+export default async function ProductPage({ 
   searchParams 
 }: { 
-  searchParams: SearchParams 
+  searchParams: Promise<SearchParams>
 }) {
-  const { q, category } = searchParams;
+  const { q, category } = await searchParams;
 
   return (
     <>
