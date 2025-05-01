@@ -77,7 +77,7 @@ const FeaturedProducts: React.FC = () => {
         </div>
         
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5 w-full"
+          className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-1 sm:gap-2 md:gap-5 w-full"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

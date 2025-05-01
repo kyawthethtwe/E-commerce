@@ -7,7 +7,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import MainPadding from "../theme/MainPadding";
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -15,10 +14,11 @@ const Header = () => {
   const cartItems = useCartStore((state) => state.items);
   const cartItemsCount = cartItems.length;
   
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/products?q=${encodeURIComponent(searchQuery)}`);
+      router.push(`/products?q=${encodeURIComponent(searchQuery)}`); // route to the products page with the search query
       setSearchQuery(""); // Clear the search input after submitting
     }
   };
