@@ -1,10 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { HelpCircle, Mail, FileText } from "lucide-react"
+import { motion } from "framer-motion"
+import { FileText, HelpCircle, Mail } from "lucide-react"
+import Link from "next/link"
+import { useInView } from "react-intersection-observer"
 import MainPadding from "../theme/MainPadding"
 
 export default function PolicySupport() {
@@ -30,7 +30,7 @@ export default function PolicySupport() {
 
   return (
     <section className="py-16 bg-gray-50">
-      <MainPadding >
+      <MainPadding>
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -50,7 +50,7 @@ export default function PolicySupport() {
               <HelpCircle className="h-10 w-10 text-primary mx-auto mb-4" />
               <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">FAQ</h3>
               <p className="text-gray-600 mb-4 text-base 2xl:text-lg">Find answers to common questions in our FAQ section.</p>
-              <Button  className="w-full">
+              <Button asChild className="w-full">
                 <Link href="/faq">View FAQ</Link>
               </Button>
             </div>
@@ -68,7 +68,7 @@ export default function PolicySupport() {
               <FileText className="h-10 w-10 text-primary mx-auto mb-4" />
               <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">Legal Resources</h3>
               <p className="text-gray-600 mb-4 text-base 2xl:text-lg">Access additional legal resources and documentation.</p>
-              <Button className="w-full">
+              <Button asChild className="w-full">
                 <Link href="/legal">View Resources</Link>
               </Button>
             </div>

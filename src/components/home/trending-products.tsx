@@ -101,7 +101,6 @@ const TrendingItems = () => {
                   key={category}
                   value={category}
                   onClick={() => setSelectedCategory(category)}
-                  className="data-[state=active]:bg-primary data-[state=active]:text-white px-4 py-2"
                 >
                   {category}
                 </TabsTrigger>

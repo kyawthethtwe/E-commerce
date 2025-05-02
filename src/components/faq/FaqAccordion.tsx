@@ -95,13 +95,13 @@ function FaqAccordion() {
         )}
 
         {(!noResults) && (
-          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
-            <TabsList className="w-full overflow-x-auto justify-start">
+          <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8 w-full">
+            <TabsList className="flex w-full overflow-x-auto justify-start h-auto p-0">
               {filteredFaqs.map((category) => (
                 <TabsTrigger
                   key={category.category}
                   value={category.category}
-                  className="flex items-center gap-2 px-4 py-2 text-sm md:text-base 2xl:text-lg whitespace-nowrap"
+                  className="gap-2 text-sm md:text-base 2xl:text-lg whitespace-nowrap"
                 >
                   {categoryIcons[category.category]}
                   {category.category}

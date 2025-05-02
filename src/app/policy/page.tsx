@@ -4,10 +4,10 @@ import PolicySupport from "@/components/policy/PolicySupport";
 
 export default function Policy() {
     return (
-        <div>
+        <>
             <PolicyHero />
             <PolicyTab />
             <PolicySupport />
-        </div>
+        </>
     );
 }

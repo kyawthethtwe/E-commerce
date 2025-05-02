@@ -29,7 +29,7 @@ export default function ContactSupport() {
   }
 
   return (
-    <section className="py-16 md:py-20 bg-gray-50">
+    <section className="py-16 md:py-24 bg-gray-50">
       <MainPadding>
         <motion.div
           ref={ref}
@@ -40,28 +40,28 @@ export default function ContactSupport() {
         >
           <motion.h2 
             variants={itemVariants} 
-            className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
+            className="text-3xl md:text-4xl font-bold mb-5 leading-tight"
           >
             Still Have Questions?
           </motion.h2>
           <motion.p 
             variants={itemVariants} 
-            className="text-base md:text-lg 2xl:text-xl text-gray-600 mb-8 md:mb-10 leading-relaxed"
+            className="text-base md:text-lg 2xl:text-xl text-gray-600 mb-10 md:mb-12 leading-relaxed max-w-2xl mx-auto"
           >
             Our support team is here to help. Reach out to us through any of these channels.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="grid md:grid-cols-3 gap-4 md:gap-6">
+          <motion.div variants={itemVariants} className="grid md:grid-cols-3 gap-5 md:gap-8">
             <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border transition-transform hover:shadow-md hover:-translate-y-1">
-              <MessageCircle className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">Live Chat</h3>
+              <MessageCircle className="h-10 w-10 text-primary mx-auto mb-5" />
+              <h3 className="text-xl 2xl:text-2xl font-semibold mb-3">Live Chat</h3>
               <p className="text-gray-600 mb-6 text-base leading-relaxed">Chat with our support team in real-time.</p>
               <Button className="w-full">Start Chat</Button>
             </div>
 
             <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border transition-transform hover:shadow-md hover:-translate-y-1">
-              <Mail className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">Email Support</h3>
+              <Mail className="h-10 w-10 text-primary mx-auto mb-5" />
+              <h3 className="text-xl 2xl:text-2xl font-semibold mb-3">Email Support</h3>
               <p className="text-gray-600 mb-6 text-base leading-relaxed">Get a response within 24 hours.</p>
               <Button asChild className="w-full">
                 <Link href="/contact">Send Email</Link>
@@ -69,8 +69,8 @@ export default function ContactSupport() {
             </div>
 
             <div className="bg-white p-6 md:p-8 rounded-lg shadow-sm border transition-transform hover:shadow-md hover:-translate-y-1">
-              <PhoneCall className="h-10 w-10 text-primary mx-auto mb-4" />
-              <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">Phone Support</h3>
+              <PhoneCall className="h-10 w-10 text-primary mx-auto mb-5" />
+              <h3 className="text-xl 2xl:text-2xl font-semibold mb-3">Phone Support</h3>
               <p className="text-gray-600 mb-6 text-base leading-relaxed">Available Mon-Fri, 9am-5pm.</p>
               <Button asChild className="w-full">
                 <a href="tel:+18001234567">Call Us</a>
@@ -80,11 +80,11 @@ export default function ContactSupport() {
 
           <motion.div 
             variants={itemVariants} 
-            className="mt-8 md:mt-12 p-6 md:p-8 bg-primary/5 rounded-lg border border-primary/20 transition-transform hover:shadow-md"
+            className="mt-10 md:mt-14 p-6 md:p-8 bg-primary/5 rounded-lg border border-primary/20 transition-transform hover:shadow-md"
           >
-            <Users className="h-10 w-10 text-primary mx-auto mb-4" />
-            <h3 className="text-xl 2xl:text-2xl font-semibold mb-2">Community Forum</h3>
-            <p className="text-gray-600 mb-6 text-base leading-relaxed max-w-xl mx-auto">
+            <Users className="h-10 w-10 text-primary mx-auto mb-5" />
+            <h3 className="text-xl 2xl:text-2xl font-semibold mb-3">Community Forum</h3>
+            <p className="text-gray-600 mb-6 text-base leading-relaxed max-w-2xl mx-auto">
               Join our community forum to connect with other users, share tips, and find answers to common questions.
             </p>
             <Button asChild variant="secondary">

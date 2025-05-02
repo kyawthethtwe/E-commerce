@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Search, X } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { Suspense, useEffect, useState } from "react"
 import MainPadding from "../theme/MainPadding"
 
-export default function FaqHero() {
+function Hero() {
   const [searchQuery, setSearchQuery] = useState("")
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -79,3 +79,10 @@ export default function FaqHero() {
   )
 }
 
+export default function FaqHero() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Hero />
+    </Suspense>
+  )
+}
