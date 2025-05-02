@@ -60,11 +60,11 @@ export default function OurStory() {
   }
 
   return (
-    <section className="pt-20 bg-gray-50">
+    <section className="py-24 bg-gray-50">
       <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">Our Story</h2>
-          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-6">Our Story</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-3xl mx-auto">
             From humble beginnings to a thriving marketplace, our journey has been driven by a passion for
             sustainability and community.
           </p>
@@ -83,20 +83,20 @@ export default function OurStory() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className={`flex flex-col  mb-12 md:flex-row`}
+              className={`flex flex-col mb-12 md:flex-row`}
             >
 
               <div className="md:w-1/2 md:pr-12 md:text-right">  
                 {index % 2 === 0 ? (
                   <div className="hidden md:block">
-                    <div className="mb-2 text-primary font-bold text-xl 2xl:text-2xl">{item.year}</div>
-                    <h3 className="text-2xl 2xl:text-3xl font-semibold mb-2">{item.title}</h3>
+                    <div className="mb-3 text-primary font-bold text-xl 2xl:text-2xl">{item.year}</div>
+                    <h3 className="text-2xl 2xl:text-3xl font-semibold mb-3">{item.title}</h3>
                     <p className="text-gray-600 text-base 2xl:text-lg">{item.description}</p>
                   </div>
                 ) : (
                   <div className="md:hidden">
-                    <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>
-                    <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                    <div className="mb-3 text-primary font-bold text-xl">{item.year}</div>
+                    <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
                     <p className="text-gray-600">{item.description}</p>
                   </div>
                 )}
@@ -111,14 +111,14 @@ export default function OurStory() {
               <div className="md:w-1/2 md:pl-12">
                 {index % 2 !== 0 ? (
                   <div className="hidden md:block">
-                    <div className="mb-2 text-primary font-bold text-xl 2xl:text-2xl">{item.year}</div>
-                    <h3 className="text-2xl font-semibold mb-2 2xl:text-3xl">{item.title}</h3>
+                    <div className="mb-3 text-primary font-bold text-xl 2xl:text-2xl">{item.year}</div>
+                    <h3 className="text-2xl font-semibold mb-3 2xl:text-3xl">{item.title}</h3>
                     <p className="text-gray-600 text-base 2xl:text-lg">{item.description}</p>
                   </div>
                 ) : (
                   <div className="md:hidden">
-                    <div className="mb-2 text-primary font-bold text-xl">{item.year}</div>
-                    <h3 className="text-2xl font-semibold mb-2">{item.title}</h3>
+                    <div className="mb-3 text-primary font-bold text-xl">{item.year}</div>
+                    <h3 className="text-2xl font-semibold mb-3">{item.title}</h3>
                     <p className="text-gray-600">{item.description}</p>
                   </div>
                 )}

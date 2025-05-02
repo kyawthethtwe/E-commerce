@@ -1,10 +1,11 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ShoppingBag, UserPlus, Upload } from "lucide-react"
+import { motion } from "framer-motion"
+import { ShoppingBag, Upload, UserPlus } from "lucide-react"
+import Link from "next/link"
+import { useInView } from "react-intersection-observer"
+import MainPadding from "../theme/MainPadding"
 
 export default function CallToAction() {
   const [ref, inView] = useInView({
@@ -28,8 +29,8 @@ export default function CallToAction() {
   }
 
   return (
-    <section className="py-20 bg-primary text-white">
-      <div className="container px-4 mx-auto">
+    <section className="py-24 bg-primary text-white">
+      <MainPadding>
         <motion.div
           ref={ref}
           variants={containerVariants}
@@ -37,10 +38,10 @@ export default function CallToAction() {
           animate={inView ? "visible" : "hidden"}
           className="text-center"
         >
-          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">
+          <motion.h2 variants={itemVariants} className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-6">
             Join Our Sustainable Marketplace
           </motion.h2>
-          <motion.p variants={itemVariants} className="text-lg md:text-xl 2xl:text-2xl max-w-2xl xl:max-w-4xl mx-auto mb-12 text-white/80">
+          <motion.p variants={itemVariants} className="text-lg md:text-xl 2xl:text-2xl max-w-3xl mx-auto mb-12 text-white/80">
             Whether you&apos;re looking to find unique items, declutter your space, or simply make more sustainable choices,
             we&apos;re here to help.
           </motion.p>
@@ -78,7 +79,7 @@ export default function CallToAction() {
             </Button>
           </motion.div>
         </motion.div>
-      </div>
+      </MainPadding>
     </section>
   )
 }

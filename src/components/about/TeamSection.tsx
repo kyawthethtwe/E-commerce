@@ -90,11 +90,11 @@ export default function TeamSection() {
   }
 
   return (
-    <section className="py-20 bg-gray-50">
-      <MainPadding >
+    <section className="py-24 bg-gray-50">
+      <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl  font-bold mb-4">Meet Our Team</h2>
-          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-6">Meet Our Team</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-3xl mx-auto">
             The passionate individuals behind our mission to create a more sustainable marketplace.
           </p>
         </div>
@@ -104,7 +104,7 @@ export default function TeamSection() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {team.map((member, index) => (
             <TeamMemberCard 

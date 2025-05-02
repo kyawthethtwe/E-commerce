@@ -1,8 +1,8 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { DollarSign, Leaf, Recycle, Shield, Users } from "lucide-react"
 import { useInView } from "react-intersection-observer"
-import { Leaf, Shield, DollarSign, Users, Recycle } from "lucide-react"
 import MainPadding from "../theme/MainPadding"
 
 const values = [
@@ -56,11 +56,11 @@ export default function CoreValues() {
   }
 
   return (
-    <section className="py-20">
-      <MainPadding className="">
+    <section className="py-24">
+      <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">Our Core Values</h2>
-          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-6">Our Core Values</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-3xl mx-auto">
             These principles guide everything we do, from how we build our platform to how we interact with our
             community.
           </p>

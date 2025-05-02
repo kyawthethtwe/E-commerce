@@ -1,17 +1,17 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { Pagination, Autoplay, Scrollbar, Mousewheel} from 'swiper/modules';
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { Autoplay, Mousewheel, Pagination, Scrollbar } from 'swiper/modules';
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
-import Image from "next/image"
-import { Star } from "lucide-react"
-import MainPadding from "../theme/MainPadding"
-import "./custom.css"
+import { Star } from "lucide-react";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import MainPadding from "../theme/MainPadding";
+import "./custom.css";
 const testimonials = [
   {
     name: "Jessica M.",
@@ -57,11 +57,11 @@ export default function Testimonials() {
   })
 
   return (
-    <section className="py-20">
+    <section className="py-24">
       <MainPadding>
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-4">What Our Community Says</h2>
-          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-2xl xl:max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl 2xl:text-5xl font-bold mb-6">What Our Community Says</h2>
+          <p className="text-lg md:text-xl 2xl:text-2xl text-gray-600 max-w-3xl mx-auto">
             Real stories from people who are making a difference through sustainable shopping.
           </p>
         </div>
@@ -121,7 +121,7 @@ export default function Testimonials() {
                       />
                     ))}
                   </div>
-                  <p className="text-gray-600 flex-grow line-clamp-3 text-base 2xl:text-lg">{testimonial.text}</p>
+                  <p className="text-gray-600 flex-grow text-base 2xl:text-lg">{testimonial.text}</p>
                 </div>
               </SwiperSlide>
             ))}
