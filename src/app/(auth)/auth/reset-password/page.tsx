@@ -1,16 +1,16 @@
 "use client"
 
-import { useState } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { resetPasswordSchema, type ResetPasswordFormData } from "@/lib/auth-schema"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
-import { Loader2 } from "lucide-react"
 import AuthLayout from "@/components/auth/AuthLayout"
-import { Suspense } from "react"
+import { Button } from "@/components/ui/button"
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { resetPasswordSchema, type ResetPasswordFormData } from "@/lib/auth-schema"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { Loader2 } from "lucide-react"
+import { useRouter, useSearchParams } from "next/navigation"
+import { Suspense, useState } from "react"
+import { useForm } from "react-hook-form"
+
 function ResetPasswordPage() {
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
@@ -64,12 +64,18 @@ function ResetPasswordPage() {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>New Password</FormLabel>
+              <FormItem className="space-y-2">
+                <FormLabel className="text-sm font-medium">New Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="••••••••" {...field} disabled={isLoading} />
+                  <Input
+                    type="password"
+                    placeholder="••••••••"
+                    className="h-11 text-base"
+                    {...field}
+                    disabled={isLoading}
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs" />
               </FormItem>
             )}
           />
@@ -78,18 +84,24 @@ function ResetPasswordPage() {
             control={form.control}
             name="confirmPassword"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Confirm New Password</FormLabel>
+              <FormItem className="space-y-2">
+                <FormLabel className="text-sm font-medium">Confirm New Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="••••••••" {...field} disabled={isLoading} />
+                  <Input
+                    type="password"
+                    placeholder="••••••••"
+                    className="h-11 text-base"
+                    {...field}
+                    disabled={isLoading}
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs" />
               </FormItem>
             )}
           />
 
-          <div className="space-y-2">
-            <p className="text-sm text-gray-600">Your password must include:</p>
+          <div className="p-4 bg-gray-50 rounded-md mt-4">
+            <p className="text-sm font-medium text-gray-700 mb-2">Your password must include:</p>
             <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
               <li>At least 8 characters</li>
               <li>At least one uppercase letter</li>
@@ -99,7 +111,11 @@ function ResetPasswordPage() {
             </ul>
           </div>
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button
+            type="submit"
+            className="w-full h-11 text-base font-medium mt-8"
+            disabled={isLoading}
+          >
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />

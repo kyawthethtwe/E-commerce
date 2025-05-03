@@ -1,17 +1,17 @@
 "use client"
 
-import { useState } from "react"
-import Link from "next/link"
-import { useRouter } from "next/navigation"
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { loginSchema, type LoginFormData } from "@/lib/auth-schema"
+import AuthLayout from "@/components/auth/AuthLayout"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form"
+import { Input } from "@/components/ui/input"
+import { loginSchema, type LoginFormData } from "@/lib/auth-schema"
+import { zodResolver } from "@hookform/resolvers/zod"
 import { Loader2 } from "lucide-react"
-import AuthLayout from "@/components/auth/AuthLayout"
+import Link from "next/link"
+import { useRouter } from "next/navigation"
+import { useState } from "react"
+import { useForm } from "react-hook-form"
 
 export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
@@ -60,12 +60,18 @@ export default function LoginPage() {
             control={form.control}
             name="email"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
+              <FormItem className="space-y-2">
+                <FormLabel className="text-sm font-medium">Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="your.email@example.com" {...field} disabled={isLoading} />
+                  <Input
+                    type="email"
+                    placeholder="your.email@example.com"
+                    className="h-11 text-base"
+                    {...field}
+                    disabled={isLoading}
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs" />
               </FormItem>
             )}
           />
@@ -74,17 +80,23 @@ export default function LoginPage() {
             control={form.control}
             name="password"
             render={({ field }) => (
-              <FormItem>
+              <FormItem className="space-y-2">
                 <div className="flex justify-between items-center">
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-sm font-medium">Password</FormLabel>
                   <Link href="/auth/forgot-password" className="text-sm text-primary hover:underline">
                     Forgot password?
                   </Link>
                 </div>
                 <FormControl>
-                  <Input type="password" placeholder="••••••••" {...field} disabled={isLoading} />
+                  <Input
+                    type="password"
+                    placeholder="••••••••"
+                    className="h-11 text-base"
+                    {...field}
+                    disabled={isLoading}
+                  />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-xs" />
               </FormItem>
             )}
           />
@@ -93,16 +105,26 @@ export default function LoginPage() {
             control={form.control}
             name="rememberMe"
             render={({ field }) => (
-              <FormItem className="flex flex-row items-center space-x-3 space-y-0">
+              <FormItem className="flex flex-row items-center space-x-3 space-y-0 mt-2">
                 <FormControl>
-                  <Checkbox checked={field.value} onCheckedChange={field.onChange} disabled={isLoading} />
+                  <Checkbox
+                    checked={field.value}
+                    onCheckedChange={field.onChange}
+                    disabled={isLoading}
+                  />
                 </FormControl>
-                <FormLabel className="text-sm 2xl:text-base font-normal">Remember me for 30 days</FormLabel>
+                <FormLabel className="text-sm font-normal cursor-pointer">
+                  Remember me for 30 days
+                </FormLabel>
               </FormItem>
             )}
           />
 
-          <Button type="submit" className="w-full" disabled={isLoading}>
+          <Button
+            type="submit"
+            className="w-full h-11 text-base font-medium mt-8"
+            disabled={isLoading}
+          >
             {isLoading ? (
               <>
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -117,16 +139,16 @@ export default function LoginPage() {
 
       <div className="relative my-8">
         <div className="absolute inset-0 flex items-center">
-          <div className="w-full border-t border-gray-300"></div>
+          <div className="w-full border-t border-gray-200"></div>
         </div>
         <div className="relative flex justify-center text-sm">
-          <span className="px-2 bg-white text-gray-500">Or continue with</span>
+          <span className="px-4 bg-white text-gray-500">Or continue with</span>
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
-        <Button className="w-full" disabled={isLoading}>
-          <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+        <Button  className="w-full h-11 text-sm" disabled={isLoading}>
+          <svg className="mr-2 h-5 w-5" viewBox="0 0 24 24">
             <path
               d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
               fill="#4285F4"
@@ -146,8 +168,8 @@ export default function LoginPage() {
           </svg>
           Google
         </Button>
-        <Button className="w-full" disabled={isLoading}>
-          <svg className="mr-2 h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+        <Button  className="w-full h-11 text-sm" disabled={isLoading}>
+          <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" />
           </svg>
           Facebook
@@ -156,4 +178,3 @@ export default function LoginPage() {
     </AuthLayout>
   )
 }
-
