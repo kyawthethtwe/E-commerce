@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query"
-import { getListing } from "../api/listing"
+import { getListings } from "../api/listing"
 
-export const useGetLising = () => {
+export const useGetListings = () => {
     return useQuery({
         queryKey: ["my-listings"],
-        queryFn: getListing
+        queryFn: getListings
     })
 }

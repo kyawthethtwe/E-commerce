@@ -3,28 +3,11 @@
 import { Button } from "@/components/ui/button"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { formatDate } from "@/lib/utils"
-import { useQuery } from "@tanstack/react-query"
+import { useGetOrders } from "@/services/queries/orderQueries"
 
-interface Order {
-  id: number
-  createdAt: string
-  total: number
-  status: "completed" | "pending" | "cancelled"
-}
 
 export default function OrdersPage() {
-  const { data: orders, isLoading, error } = useQuery<Order[]>({
-    queryKey: ["my-orders"],
-    queryFn: async () => {
-      const response = await fetch("/api/orders/my-orders")
-      if (!response.ok) {
-        throw new Error('Failed to fetch orders')
-      }
-      const data = await response.json()
-      return Array.isArray(data) ? data : []
-    },
-  })
-
+  const { data: orders, isLoading, error } = useGetOrders();
   if (isLoading) {
     return (
       <div className="flex items-center justify-center py-12">

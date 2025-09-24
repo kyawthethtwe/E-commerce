@@ -18,14 +18,12 @@ interface CartStore {
   getTotal: () => number;
 }
 
-// Create a store named useCartStore
 export const useCartStore = create<CartStore>()(
   persist(
     (set, get) => ({
-      items: [], // initialize the cart with an empty array
-      addItem: (
-        item // add item to cart
-      ) =>
+      items: [],
+      // add item to cart
+      addItem: (item) =>
         set((state) => {
           const existingItem = state.items.find((i) => i.id === item.id); // Check if item already exists
           if (existingItem) {
@@ -45,24 +43,22 @@ export const useCartStore = create<CartStore>()(
             items: [...state.items, { ...item, quantity: item.quantity || 1 }],
           };
         }),
-      removeItem: (
-        id // remove item from cart
-      ) =>
+      // remove item from cart
+      removeItem: (id) =>
         set((state) => ({
           items: state.items.filter((item) => item.id !== id),
         })),
-      updateQuantity: (
-        id,
-        quantity // update quantity of item in cart
-      ) =>
+      // update quantity of item in cart
+      updateQuantity: (id, quantity) =>
         set((state) => ({
           items: state.items.map((item) =>
             item.id === id ? { ...item, quantity } : item
           ), // find the item and update the quantity
         })),
-      clearCart: () => set({ items: [] }), // clear the cart
+      // clear the cart
+      clearCart: () => set({ items: [] }),
+      // get the total price of all items in the cart
       getTotal: () => {
-        // get the total price of all items in the cart
         const items = get().items;
         return items.reduce(
           (total, item) => total + item.price * item.quantity,
